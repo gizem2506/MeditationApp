@@ -12,6 +12,7 @@ import {
 import DropDownPicker from 'react-native-dropdown-picker';
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
+import {CustomImage} from '../Common/CustomImage';
 
 const {width, height} = Dimensions.get('window');
 const HomeScreen = ({navigation}) => {
@@ -45,6 +46,16 @@ const HomeScreen = ({navigation}) => {
             <TouchableOpacity
               style={styles.ilhambutton}
               onPress={() => navigation.navigate('Yazıyorum')}>
+              {/*<CustomImage width={20} height={20} source={require('../../assets/icons/ic_logo_facebook.png')} />*/}
+              <CustomImage
+                style={styles.customımage}
+                width={20}
+                height={20}
+                source={
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2s7g5rKVCRjxH72WcRB-ZESXP1AoU4fFZCA&usqp=CAU'
+                }
+                isUri
+              />
               <Text style={styles.buttonText}>Yazıyorum</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.ilhambutton}>
@@ -124,8 +135,9 @@ const styles = StyleSheet.create({
     borderColor: '#6320EE',
     borderRadius: 10,
     borderWidth: 2,
-    padding: 5,
+    padding: 3,
     margin: 2,
+    paddingHorizontal: 110,
   },
 
   imagecontainer: {
@@ -148,8 +160,8 @@ const styles = StyleSheet.create({
   ilhamcontainer: {
     backgroundColor: '#ffffff',
     borderRadius: 20,
-    marginTop: 8,
-    padding: 20,
+    marginTop: 5,
+    padding: 10,
     margin: 10,
     flexDirection: 'column',
     alignItems: 'center',
@@ -172,5 +184,8 @@ const styles = StyleSheet.create({
   },
   ortam: {
     backgroundColor: '#6320EE',
+  },
+  customımage: {
+    borderRadius: 20,
   },
 });

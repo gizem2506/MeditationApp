@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width, height} = Dimensions.get('window');
 const YazıyorumDetail = () => {
@@ -30,7 +29,6 @@ const YazıyorumDetail = () => {
           </Text>
         </View>
         <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
-        <Button icon={<Icon name="arrow-right" size={15} color="white" />} />
       </View>
     </SafeAreaView>
   );
