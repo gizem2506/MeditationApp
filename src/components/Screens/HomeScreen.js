@@ -42,7 +42,9 @@ const HomeScreen = ({navigation}) => {
               <Text style={styles.ilhambuttonText}>İlham Al </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.ilhambutton}>
+            <TouchableOpacity
+              style={styles.ilhambutton}
+              onPress={() => navigation.navigate('Yazıyorum')}>
               <Text style={styles.buttonText}>Yazıyorum</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.ilhambutton}>
@@ -74,8 +76,7 @@ const HomeScreen = ({navigation}) => {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Mood')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Mood')}>
           <Text style={styles.ortamtext}>Tüm ortamları gör</Text>
         </TouchableOpacity>
       </View>
