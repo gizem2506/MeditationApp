@@ -13,6 +13,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
+import HomeScreenButton from '../Common/HomeScreenButton';
 
 const {width, height} = Dimensions.get('window');
 const HomeScreen = ({navigation}) => {
@@ -39,68 +40,37 @@ const HomeScreen = ({navigation}) => {
         </Text>
         <View style={styles.ilhamcontainer}>
           <View style={styles.buttoncontainer}>
-            <TouchableOpacity style={styles.ibutton}>
-              <CustomImage
-                style={styles.customımage}
-                width={20}
-                height={20}
-                source={'https://cdn-icons-png.flaticon.com/512/44/44386.png'}
-                isUri
-              />
-              <Text style={styles.ilhambuttonText}>İlham Al </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.ilhambutton}
-              onPress={() => navigation.navigate('Write')}>
-              <CustomImage
-                style={styles.customımage}
-                width={20}
-                height={20}
-                source={require('../../assets/icons/yazıyorum.png')}
-              />
-              <Text style={styles.buttonText}>Yazıyorum</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.ilhambutton}
-              onPress={() => navigation.navigate('Draw')}>
-              >
-              <CustomImage
-                style={styles.customımage}
-                width={20}
-                height={20}
-                source={require('../../assets/icons/Vectorçiziyorum.png')}
-              />
-              <Text style={styles.buttonText}>Çiziyorum</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.ilhambutton}
-              onPress={() => navigation.navigate('Think')}>
-              >
-              <CustomImage
-                style={styles.customımage}
-                width={20}
-                height={20}
-                source={require('../../assets/icons/Vectordüşünüyorum.png')}
-              />
-              <Text style={styles.buttonText}>Düşünüyorum</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.ilhambutton}
-              onPress={() => navigation.navigate('Compose')}>
-              >
-              <CustomImage
-                style={styles.customımage}
-                width={20}
-                height={20}
-                source={require('../../assets/icons/Vectorbesteliyorum.png')}
-              />
-              <Text style={styles.buttonText}>Besteliyorum</Text>
-            </TouchableOpacity>
+            <HomeScreenButton
+              text={'İlham Al'}
+              image={'https://cdn-icons-png.flaticon.com/512/44/44386.png'}
+              isImageUri
+              bgColor={'#6320EE'}
+              onPress={null}
+            />
+            <HomeScreenButton
+              text={'Yazıyorum'}
+              image={require('../../assets/icons/yazıyorum.png')}
+              onPress={() => navigation.navigate('WriteNavigation')}
+            />
+            <HomeScreenButton
+              text={'Çiziyorum'}
+              image={require('../../assets/icons/Vectorçiziyorum.png')}
+              onPress={null}
+            />
+            <HomeScreenButton
+              text={'Düşünüyorum'}
+              image={require('../../assets/icons/Vectordüşünüyorum.png')}
+              onPress={null}
+            />
+            <HomeScreenButton
+              text={'Besteliyorum'}
+              image={require('../../assets/icons/Vectorbesteliyorum.png')}
+              onPress={null}
+            />
           </View>
         </View>
         <Text style={styles.veyatext}>veya</Text>
-        <View>
+        <View style={styles.dropdowngenel}>
           <View style={styles.dropdowncontainer}>
             <DropDownPicker
               style={styles.dropdown}
@@ -140,44 +110,17 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     padding: 5,
   },
-  ilhambuttonText: {
+  /*ilhambuttonText: {
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
   },
-  buttonText: {
-    fontWeight: 'bold',
-    color: '#6320EE',
-    textAlign: 'center',
-  },
+*/
   buttoncontainer: {},
   veyatext: {
     color: '#ffffff',
     textAlign: 'center',
     marginTop: 5,
-  },
-  ibutton: {
-    backgroundColor: '#6320EE',
-    borderStyle: 'solid',
-    borderColor: '#6320EE',
-    borderRadius: 10,
-    borderWidth: 2,
-    padding: 2,
-    margin: 5,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  ilhambutton: {
-    backgroundColor: '#ffffff',
-    borderStyle: 'solid',
-    borderColor: '#6320EE',
-    borderRadius: 10,
-    borderWidth: 2,
-    padding: 2,
-    margin: 5,
-    paddingHorizontal: 90,
-    flexDirection: 'row',
-    justifyContent: 'center',
   },
   ilhamcontainer: {
     backgroundColor: '#ffffff',
@@ -199,18 +142,17 @@ const styles = StyleSheet.create({
   dropdowncontainer: {
     backgroundColor: '#ffffff',
     borderRadius: 20,
-    padding: 15,
+    padding: 10,
     margin: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'space-between',
   },
 
   dropdown: {
     borderRadius: 20,
     backgroundColor: '#F3F0FA',
     borderColor: '#F3F0FA',
+    width: '75%',
   },
   ortamtext: {
     textAlign: 'center',
@@ -219,6 +161,7 @@ const styles = StyleSheet.create({
   },
   ortam: {
     backgroundColor: '#6320EE',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
-  customımage: {marginRight: 10},
 });

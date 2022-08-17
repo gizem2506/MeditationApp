@@ -4,6 +4,7 @@ import {
   Text,
   ImageBackground,
   SafeAreaView,
+  Pressable,
   StyleSheet,
   Button,
 } from 'react-native';
@@ -12,38 +13,26 @@ import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
 
 const {width, height} = Dimensions.get('window');
-const WriteDetail = ({navigation}) => {
-  return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <ImageBackground
-          style={styles.imagecontainer}
-          source={Image}
-          resizeMode="stretch"
-          alt="background"></ImageBackground>
-      </View>
-      <View>
-        <View style={styles.bodyContainer}>
-          <Text style={styles.text1}>1</Text>
-          <Text style={styles.title1}>
-            "Şu an" yazmaya başlamak için en iyi andır!
-          </Text>
-        </View>
-        <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
-        <CustomImage
-          onPress={() => navigation.navigate('Home')}
-          style={styles.customımage}
-          width={50}
-          height={50}
-          source={'https://img.icons8.com/color-glass/344/circled-right.png'}
-          isUri
-        />
-      </View>
-    </SafeAreaView>
-  );
-};
 
-export default WriteDetail;
+class WriteFirstPage extends Component {
+  render() {
+    return (
+      <View>
+        <Pressable
+          onPress={() => this.props.navigation.navigate('WriteSecondPage')}>
+          <Text style={styles.text1}>1</Text>
+        </Pressable>
+        <Text style={styles.title1}>
+          "Şu an" yazmaya başlamak için en iyi andır!
+        </Text>
+
+        <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
+      </View>
+    );
+  }
+}
+
+export default WriteFirstPage;
 
 const styles = StyleSheet.create({
   container: {
@@ -56,7 +45,7 @@ const styles = StyleSheet.create({
   },
   customımage: {
     marginHorizontal: 20,
-    marginVertical:40,
+    marginVertical: 40,
     alignSelf: 'flex-end',
   },
   text1: {
