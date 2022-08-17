@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground, StyleSheet} from 'react-native';
 const {width, height} = Dimensions.get('window');
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';

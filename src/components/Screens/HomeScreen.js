@@ -50,7 +50,7 @@ const HomeScreen = ({navigation}) => {
             <HomeScreenButton
               text={'Yazıyorum'}
               image={require('../../assets/icons/yazıyorum.png')}
-              onPress={() => navigation.navigate('WriteNavigation')}
+              onPressHandler={() => navigation.navigate('Write')}
             />
             <HomeScreenButton
               text={'Çiziyorum'}
@@ -83,7 +83,7 @@ const HomeScreen = ({navigation}) => {
               setItems={setItems}
             />
             <TouchableOpacity style={styles.ortam}>
-              <Text>Ortamı bul</Text>
+              <Text style={{color: 'white'}}>Ortamı bul</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -161,7 +161,9 @@ const styles = StyleSheet.create({
   },
   ortam: {
     backgroundColor: '#6320EE',
-    flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
+    padding: 14,
+    borderRadius: 10
   },
 });
