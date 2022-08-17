@@ -40,6 +40,13 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.ilhamcontainer}>
           <View style={styles.buttoncontainer}>
             <TouchableOpacity style={styles.ibutton}>
+              <CustomImage
+                style={styles.customımage}
+                width={20}
+                height={20}
+                source={'https://cdn-icons-png.flaticon.com/512/44/44386.png'}
+                isUri
+              />
               <Text style={styles.ilhambuttonText}>İlham Al </Text>
             </TouchableOpacity>
 
@@ -51,20 +58,33 @@ const HomeScreen = ({navigation}) => {
                 style={styles.customımage}
                 width={20}
                 height={20}
-                source={
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2s7g5rKVCRjxH72WcRB-ZESXP1AoU4fFZCA&usqp=CAU'
-                }
+                source={'https://cdn-icons-png.flaticon.com/512/44/44386.png'}
                 isUri
               />
               <Text style={styles.buttonText}>Yazıyorum</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.ilhambutton}>
+            <CustomImage
+                width={20}
+                height={20}
+                source={require('../../assets/icons/Vectorçiziyorum.png')}
+              />
               <Text style={styles.buttonText}>Çiziyorum</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.ilhambutton}>
+              <CustomImage
+                width={20}
+                height={20}
+                source={require('../../assets/icons/Vectordüşünüyorum.png')}
+              />
               <Text style={styles.buttonText}>Düşünüyorum</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.ilhambutton}>
+              <CustomImage
+                width={20}
+                height={20}
+                source={require('../../assets/icons/Vectorbesteliyorum.png')}
+              />
               <Text style={styles.buttonText}>Besteliyorum</Text>
             </TouchableOpacity>
           </View>
@@ -100,7 +120,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
+     },
 
   ambianchetext: {
     fontWeight: 'bold',
@@ -151,7 +171,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 20,
     padding: 15,
-    margin: 10,
+    margin: 15,
     flexDirection: 'row',
     alignItems: 'center',
     display: 'flex',
@@ -160,9 +180,9 @@ const styles = StyleSheet.create({
   ilhamcontainer: {
     backgroundColor: '#ffffff',
     borderRadius: 20,
-    marginTop: 5,
+    marginTop: 3,
     padding: 10,
-    margin: 10,
+    margin: 15,
     flexDirection: 'column',
     alignItems: 'center',
   },
@@ -171,12 +191,12 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     textAlign: 'center',
     marginTop: 5,
+   
   },
   dropdown: {
     borderRadius: 20,
     backgroundColor: '#F3F0FA',
     borderColor: '#F3F0FA',
-    borderRadius: 10,
   },
   ortamtext: {
     textAlign: 'center',
@@ -185,7 +205,5 @@ const styles = StyleSheet.create({
   ortam: {
     backgroundColor: '#6320EE',
   },
-  customımage: {
-    borderRadius: 20,
-  },
+  customımage: {},
 });

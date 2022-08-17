@@ -9,9 +9,10 @@ import {
 } from 'react-native';
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
+import {CustomImage} from '../Common/CustomImage';
 
 const {width, height} = Dimensions.get('window');
-const YazıyorumDetail = () => {
+const YazıyorumDetail = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -29,6 +30,14 @@ const YazıyorumDetail = () => {
           </Text>
         </View>
         <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
+        <CustomImage
+          onPress={() => navigation.navigate('Home')}
+          style={styles.customımage}
+          width={50}
+          height={50}
+          source={'https://img.icons8.com/color-glass/344/circled-right.png'}
+          isUri
+        />
       </View>
     </SafeAreaView>
   );
@@ -44,6 +53,11 @@ const styles = StyleSheet.create({
   imagecontainer: {
     height: height,
     width: width,
+  },
+  customımage: {
+    marginHorizontal: 20,
+    marginVertical:40,
+    alignSelf: 'flex-end',
   },
   text1: {
     marginLeft: 5,
