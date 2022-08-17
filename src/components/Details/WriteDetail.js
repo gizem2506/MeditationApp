@@ -12,7 +12,7 @@ import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
 
 const {width, height} = Dimensions.get('window');
-const YazıyorumDetail = ({navigation}) => {
+const WriteDetail = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -43,7 +43,7 @@ const YazıyorumDetail = ({navigation}) => {
   );
 };
 
-export default YazıyorumDetail;
+export default WriteDetail;
 
 const styles = StyleSheet.create({
   container: {

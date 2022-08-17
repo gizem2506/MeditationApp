@@ -52,35 +52,45 @@ const HomeScreen = ({navigation}) => {
 
             <TouchableOpacity
               style={styles.ilhambutton}
-              onPress={() => navigation.navigate('Yazıyorum')}>
-              {/*<CustomImage width={20} height={20} source={require('../../assets/icons/ic_logo_facebook.png')} />*/}
+              onPress={() => navigation.navigate('Write')}>
               <CustomImage
                 style={styles.customımage}
                 width={20}
                 height={20}
-                source={'https://cdn-icons-png.flaticon.com/512/44/44386.png'}
-                isUri
+                source={require('../../assets/icons/yazıyorum.png')}
               />
               <Text style={styles.buttonText}>Yazıyorum</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.ilhambutton}>
-            <CustomImage
+            <TouchableOpacity
+              style={styles.ilhambutton}
+              onPress={() => navigation.navigate('Draw')}>
+              >
+              <CustomImage
+                style={styles.customımage}
                 width={20}
                 height={20}
                 source={require('../../assets/icons/Vectorçiziyorum.png')}
               />
               <Text style={styles.buttonText}>Çiziyorum</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.ilhambutton}>
+            <TouchableOpacity
+              style={styles.ilhambutton}
+              onPress={() => navigation.navigate('Think')}>
+              >
               <CustomImage
+                style={styles.customımage}
                 width={20}
                 height={20}
                 source={require('../../assets/icons/Vectordüşünüyorum.png')}
               />
               <Text style={styles.buttonText}>Düşünüyorum</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.ilhambutton}>
+            <TouchableOpacity
+              style={styles.ilhambutton}
+              onPress={() => navigation.navigate('Compose')}>
+              >
               <CustomImage
+                style={styles.customımage}
                 width={20}
                 height={20}
                 source={require('../../assets/icons/Vectorbesteliyorum.png')}
@@ -120,7 +130,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-     },
+  },
 
   ambianchetext: {
     fontWeight: 'bold',
@@ -140,14 +150,22 @@ const styles = StyleSheet.create({
     color: '#6320EE',
     textAlign: 'center',
   },
+  buttoncontainer: {},
+  veyatext: {
+    color: '#ffffff',
+    textAlign: 'center',
+    marginTop: 5,
+  },
   ibutton: {
     backgroundColor: '#6320EE',
     borderStyle: 'solid',
     borderColor: '#6320EE',
     borderRadius: 10,
     borderWidth: 2,
-    padding: 5,
-    margin: 2,
+    padding: 2,
+    margin: 5,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   ilhambutton: {
     backgroundColor: '#ffffff',
@@ -155,9 +173,20 @@ const styles = StyleSheet.create({
     borderColor: '#6320EE',
     borderRadius: 10,
     borderWidth: 2,
-    padding: 3,
-    margin: 2,
-    paddingHorizontal: 110,
+    padding: 2,
+    margin: 5,
+    paddingHorizontal: 90,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  ilhamcontainer: {
+    backgroundColor: '#ffffff',
+    borderRadius: 20,
+    marginTop: 3,
+    padding: 10,
+    margin: 20,
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 
   imagecontainer: {
@@ -171,28 +200,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 20,
     padding: 15,
-    margin: 15,
+    margin: 20,
     flexDirection: 'row',
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'space-between',
   },
-  ilhamcontainer: {
-    backgroundColor: '#ffffff',
-    borderRadius: 20,
-    marginTop: 3,
-    padding: 10,
-    margin: 15,
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  buttoncontainer: {},
-  veyatext: {
-    color: '#ffffff',
-    textAlign: 'center',
-    marginTop: 5,
-   
-  },
+
   dropdown: {
     borderRadius: 20,
     backgroundColor: '#F3F0FA',
@@ -201,9 +215,10 @@ const styles = StyleSheet.create({
   ortamtext: {
     textAlign: 'center',
     padding: 10,
+    color: 'white',
   },
   ortam: {
     backgroundColor: '#6320EE',
   },
-  customımage: {},
+  customımage: {marginRight: 10},
 });
