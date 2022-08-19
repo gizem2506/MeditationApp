@@ -14,6 +14,7 @@ import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
 import HomeScreenButton from '../Common/HomeScreenButton';
+import BackgroundColor from '../Common/BackgroundColor';
 const {width, height} = Dimensions.get('window');
 const HomeScreen = ({navigation}) => {
   const [open, setOpen] = useState(false);
@@ -30,7 +31,9 @@ const HomeScreen = ({navigation}) => {
             style={styles.imagecontainer}
             source={Image}
             resizeMode="stretch"
-            alt="background"></ImageBackground>
+            alt="background">
+            <BackgroundColor />
+          </ImageBackground>
         </View>
       </View>
       <View>
@@ -90,11 +93,6 @@ const HomeScreen = ({navigation}) => {
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('Mood')}>
           <Text style={styles.ortamtext}>Tüm ortamları gör</Text>
-          {/*} <CustomImage
-            style={styles.customImage}
-            width={20}
-            height={20}
-  />*/}
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -116,15 +114,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     padding: 5,
   },
-  /*ilhambuttonText: {
-    fontWeight: 'bold',
-    color: '#ffffff',
-    textAlign: 'center',
-  },
-*/
-  backgroundContainer: {
-    backgroundColor: '#6320ee',
-  },
+
   oncontainer: {},
   veyatext: {
     color: '#ffffff',

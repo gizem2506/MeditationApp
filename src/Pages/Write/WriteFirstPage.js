@@ -5,12 +5,11 @@ import {
   ImageBackground,
   SafeAreaView,
   StyleSheet,
-
 } from 'react-native';
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
-
+import BackgroundColor from '../../components/Common/BackgroundColor';
 const {width, height} = Dimensions.get('window');
 
 class WriteFirstPage extends React.Component {
@@ -22,7 +21,9 @@ class WriteFirstPage extends React.Component {
             style={styles.imagecontainer}
             source={Image}
             resizeMode="stretch"
-            alt="background"></ImageBackground>
+            alt="background">
+            <BackgroundColor />
+          </ImageBackground>
         </View>
 
         <Text style={styles.text1}>1</Text>
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  
+
   text1: {
     marginLeft: 5,
     fontWeight: 'bold',

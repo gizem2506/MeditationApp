@@ -1,22 +1,27 @@
 import {CustomImage} from './CustomImage';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity,View, StyleSheet} from 'react-native';
 import React from 'react';
 
 const HomeScreenButton = props => {
   const {text, image, onPressHandler, bgColor, isImageUri} = props;
   return (
-    <TouchableOpacity
-      style={[styles.button, {backgroundColor: bgColor ? bgColor : '#ffffff'}]}
-      onPress={onPressHandler}>
-      <CustomImage
-        style={styles.customImage}
-        width={20}
-        height={20}
-        source={image}
-        isUri={isImageUri}
-      />
-      <Text style={styles.buttonText}>{text}</Text>
-    </TouchableOpacity>
+    <View style={styles.moodContainer}>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          {backgroundColor: bgColor ? bgColor : '#ffffff'},
+        ]}
+        onPress={onPressHandler}>
+        <CustomImage
+          style={styles.customImage}
+          width={20}
+          height={20}
+          source={image}
+          isUri={isImageUri}
+        />
+        <Text style={styles.buttonText}>{text}</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
