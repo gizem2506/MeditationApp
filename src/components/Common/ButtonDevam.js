@@ -21,7 +21,18 @@ const ButtonDevam = props => {
 export default ButtonDevam;
 
 const styles = StyleSheet.create({
-  buttondevam: {},
-  customImage: {},
+  buttondevam: {
+    backgroundColor: 'white',
+    width: 60,
+    height: 45,
+    borderRadius: 10,
+    alignSelf: 'flex-end',
+    padding: 13,
+    margin:7
+
+  },
+
+  customImage: {
+  },
   buttonText: {},
 });

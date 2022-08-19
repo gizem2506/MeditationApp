@@ -9,6 +9,8 @@ import {
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 const {width, height} = Dimensions.get('window');
+
+import MoodCard from '../Card/MoodCard';
 const MoodScreen = () => {
   return (
     <SafeAreaView>
@@ -19,6 +21,7 @@ const MoodScreen = () => {
           resizeMode="stretch"
           alt="background"></ImageBackground>
       </View>
+      <MoodCard />
     </SafeAreaView>
   );
 };
@@ -34,5 +37,4 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  
 });

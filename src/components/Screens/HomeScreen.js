@@ -14,7 +14,6 @@ import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
 import HomeScreenButton from '../Common/HomeScreenButton';
-
 const {width, height} = Dimensions.get('window');
 const HomeScreen = ({navigation}) => {
   const [open, setOpen] = useState(false);
@@ -26,11 +25,13 @@ const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <ImageBackground
-          style={styles.imagecontainer}
-          source={Image}
-          resizeMode="stretch"
-          alt="background"></ImageBackground>
+        <View style={styles.backgroundContainer}>
+          <ImageBackground
+            style={styles.imagecontainer}
+            source={Image}
+            resizeMode="stretch"
+            alt="background"></ImageBackground>
+        </View>
       </View>
       <View>
         <Text style={styles.ambianchetext}>Ambianche hoş geldiniz!</Text>
@@ -89,6 +90,11 @@ const HomeScreen = ({navigation}) => {
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('Mood')}>
           <Text style={styles.ortamtext}>Tüm ortamları gör</Text>
+          {/*} <CustomImage
+            style={styles.customImage}
+            width={20}
+            height={20}
+  />*/}
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -116,7 +122,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 */
-  buttoncontainer: {},
+  backgroundContainer: {
+    backgroundColor: '#6320ee',
+  },
+  oncontainer: {},
   veyatext: {
     color: '#ffffff',
     textAlign: 'center',
@@ -164,6 +173,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 14,
-    borderRadius: 10
+    borderRadius: 10,
   },
 });

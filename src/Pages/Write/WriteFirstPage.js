@@ -5,11 +5,10 @@ import {
   ImageBackground,
   SafeAreaView,
   StyleSheet,
-  Button,
+
 } from 'react-native';
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
-import {CustomImage} from '../Common/CustomImage';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 
 const {width, height} = Dimensions.get('window');
@@ -33,8 +32,7 @@ class WriteFirstPage extends React.Component {
 
         <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
         <ButtonDevam
-          text={'Devam Edin'}
-          image={require('../../assets/icons/devamicon.png')}
+          image={require('../../assets/icons/right.png')}
           onPressHandler={() =>
             this.props.navigation.navigate('WriteSecondPage')
           }
@@ -55,11 +53,7 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  customımage: {
-    marginHorizontal: 20,
-    marginVertical: 40,
-    alignSelf: 'flex-end',
-  },
+  
   text1: {
     marginLeft: 5,
     fontWeight: 'bold',
