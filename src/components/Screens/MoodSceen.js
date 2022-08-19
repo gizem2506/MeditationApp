@@ -56,7 +56,7 @@ const MoodScreen = () => {
 
         <View style={styles.moodContainer}>
           {servistenGelenDatalar.map((item, index) => {
-            <MoodCard item={item} key={index} />;
+            return <MoodCard item={item} key={index} />;
           })}
         </View>
         <BackgroundColor />
@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: '#a55eea',
-    marginHorizontal: 80,
   },
 
   imageContainer: {
