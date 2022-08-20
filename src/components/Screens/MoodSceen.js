@@ -46,20 +46,23 @@ const MoodScreen = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-      <BackgroundColor />
-
         <ImageBackground
           style={styles.imagecontainer}
           source={Image}
           resizeMode="stretch"
-          alt="background"></ImageBackground>
+          alt="background">
+        </ImageBackground>
 
         <View style={styles.moodContainer}>
           {servistenGelenDatalar.map((item, index) => {
             return <MoodCard item={item} key={index} />;
           })}
+
         </View>
+
       </View>
+      <BackgroundColor />
+
     </SafeAreaView>
   );
 };
