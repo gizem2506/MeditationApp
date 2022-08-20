@@ -1,18 +1,17 @@
 import React, {memo} from 'react';
-import {Pressable} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {Pressable,Image} from 'react-native';
 
 export const CustomImage = memo(
   ({source, width, height, resizeMode, style, isUri, onPress}) => {
     const sourceValue = isUri
-      ? {uri: source, priority: FastImage.priority.normal}
+      ? {uri: source}
       : source;
 
     const renderImage = () => (
-      <FastImage
+      <Image
         style={[{...style}, {width, height}]}
         source={sourceValue}
-        resizeMode={resizeMode || FastImage.resizeMode.contain}
+        resizeMode={resizeMode || 'contain'}
       />
     );
 

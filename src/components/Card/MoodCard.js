@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
-import {Avatar, Button, Card, Title, Paragraph} from 'react-native-paper';
-import {text} from 'stream/consumers';
+import {Title, Paragraph} from 'react-native-paper';
 import {CustomImage} from '../Common/CustomImage';
 
 const MoodCard = props => {
@@ -46,10 +45,8 @@ const styles = StyleSheet.create({
     height: 170,
     margin: 14,
     backgroundColor: 'white',
-    borderRadius: 5,
   },
   customImg: {
-    borderRadius: 5,
   },
   touchableButton: {
     backgroundColor: '#6320EE',
@@ -62,6 +59,6 @@ const styles = StyleSheet.create({
   },
   moodText: {
     textAlign: 'center',
-    color:'white'
+    color: 'white',
   },
 });

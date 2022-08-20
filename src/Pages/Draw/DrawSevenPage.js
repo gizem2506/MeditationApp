@@ -4,6 +4,7 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
+  Image,
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
@@ -11,11 +12,12 @@ import Image1 from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import BackgroundColor from '../../components/Common/BackgroundColor';
+import MoodCard from '../../components/Card/MoodCard';
 
-class WriteSixPage extends React.Component {
+class DrawSevenPage extends React.Component {
   render() {
     return (
-      <View>
+      <SafeAreaView>
         <View style={styles.container}>
           <ImageBackground
             style={styles.imageContainer}
@@ -26,25 +28,25 @@ class WriteSixPage extends React.Component {
           </ImageBackground>
         </View>
         <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>6</Text>
+          <Text style={styles.writetext}>7</Text>
           <Text style={styles.writetitle}>
-            Bazen ilham ne yaparsan yap gelmez. Eğer hala ilham gelmediyse
-            düşünme dışarı çık ve sosyalleş! Başka insanların düşünceleri sende
-            bir ilham ışığı yakabilir.
+            Özgür olun, daha da özgür... En özgür hissedeceğiniz hale bürünmeye
+            çalışın
           </Text>
         </View>
-        <Text style={styles.writeyazi}>
-          Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
+        <Text style={styles.title2}>
+          İşte sana ilham verebilecek ortamlarımız!
         </Text>
+
         <ButtonDevam
           image={require('../../assets/icons/home.png')}
           onPressHandler={() => this.props.navigation.navigate('Home')}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
-export default WriteSixPage;
+export default DrawSevenPage;
 
 const styles = StyleSheet.create({
   container: {
@@ -62,6 +64,12 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
+  title2: {
+    marginLeft: 20,
+    fontSize: 15,
+    color: 'white',
+    marginTop: 10,
+  },
   writetext: {
     fontWeight: 'bold',
     color: 'white',
@@ -70,9 +78,5 @@ const styles = StyleSheet.create({
     margin: 20,
     paddingTop: 100,
     marginTop: 90,
-  },
-  writeyazi: {
-    margin: 20,
-    color: 'white',
   },
 });

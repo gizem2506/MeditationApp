@@ -59,7 +59,7 @@ const HomeScreen = ({navigation}) => {
             <HomeScreenButton
               text={'Çiziyorum'}
               image={require('../../assets/icons/Vectorçiziyorum.png')}
-              onPress={null}
+              onPressHandler={() => navigation.navigate('Draw')}
             />
             <HomeScreenButton
               text={'Düşünüyorum'}

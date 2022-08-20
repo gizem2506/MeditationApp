@@ -4,6 +4,7 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
+  Image,
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
@@ -11,11 +12,12 @@ import Image1 from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import BackgroundColor from '../../components/Common/BackgroundColor';
+import MoodCard from '../../components/Card/MoodCard';
 
-class WriteSixPage extends React.Component {
+class WriteFivePage extends React.Component {
   render() {
     return (
-      <View>
+      <SafeAreaView>
         <View style={styles.container}>
           <ImageBackground
             style={styles.imageContainer}
@@ -26,25 +28,21 @@ class WriteSixPage extends React.Component {
           </ImageBackground>
         </View>
         <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>6</Text>
+          <Text style={styles.writetext}>5</Text>
           <Text style={styles.writetitle}>
-            Bazen ilham ne yaparsan yap gelmez. Eğer hala ilham gelmediyse
-            düşünme dışarı çık ve sosyalleş! Başka insanların düşünceleri sende
-            bir ilham ışığı yakabilir.
+            Rastgele bir şeyler karalamaya başla ! Belkide gerisi gelir...
           </Text>
         </View>
-        <Text style={styles.writeyazi}>
-          Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
-        </Text>
+
         <ButtonDevam
-          image={require('../../assets/icons/home.png')}
-          onPressHandler={() => this.props.navigation.navigate('Home')}
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => this.props.navigation.navigate('DrawSixPage')}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
-export default WriteSixPage;
+export default WriteFivePage;
 
 const styles = StyleSheet.create({
   container: {
@@ -70,9 +68,5 @@ const styles = StyleSheet.create({
     margin: 20,
     paddingTop: 100,
     marginTop: 90,
-  },
-  writeyazi: {
-    margin: 20,
-    color: 'white',
   },
 });

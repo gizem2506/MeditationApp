@@ -7,7 +7,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import BackgroundColor from '../../components/Common/BackgroundColor';
@@ -18,7 +18,7 @@ class WriteSecondPage extends React.Component {
         <View style={styles.container}>
           <ImageBackground
             style={styles.imageContainer}
-            source={Image}
+            source={Image1}
             resizeMode="stretch"
             alt="background">
             <BackgroundColor />

@@ -11,8 +11,7 @@ import Image1 from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import BackgroundColor from '../../components/Common/BackgroundColor';
-
-class WriteSixPage extends React.Component {
+class DrawSecondPage extends React.Component {
   render() {
     return (
       <View>
@@ -25,26 +24,26 @@ class WriteSixPage extends React.Component {
             <BackgroundColor />
           </ImageBackground>
         </View>
-        <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>6</Text>
-          <Text style={styles.writetitle}>
-            Bazen ilham ne yaparsan yap gelmez. Eğer hala ilham gelmediyse
-            düşünme dışarı çık ve sosyalleş! Başka insanların düşünceleri sende
-            bir ilham ışığı yakabilir.
+        <View style={styles.textContainer}>
+          <Text style={styles.textBir}>2 </Text>
+          <Text style={styles.textİki}>
+            Challange'ler sizi motive edecek en güzel yöntemdir.Çizmeyle alakalı
+            challange önerileri:
           </Text>
+          <Text style={styles.rastgele}>Rastgele challange öner</Text>
         </View>
-        <Text style={styles.writeyazi}>
-          Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
-        </Text>
+
         <ButtonDevam
-          image={require('../../assets/icons/home.png')}
-          onPressHandler={() => this.props.navigation.navigate('Home')}
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() =>
+            this.props.navigation.navigate('DrawThreePage')
+          }
         />
       </View>
     );
   }
 }
-export default WriteSixPage;
+export default DrawSecondPage;
 
 const styles = StyleSheet.create({
   container: {
@@ -55,24 +54,25 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  writetitle: {
+  textBir: {
     fontWeight: 'bold',
-    fontSize: 20,
-    paddingTop: 8,
     color: 'white',
+    fontSize: 20,
+    marginTop: 80,
+  },
+  textİki: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white',
+    marginTop: 5,
+  },
+  textContainer: {
+    margin: 10,
   },
 
-  writetext: {
+  rastgele: {
+    color: '#56E1FF',
+    fontSize: 18,
     fontWeight: 'bold',
-    color: 'white',
-  },
-  writeContainer: {
-    margin: 20,
-    paddingTop: 100,
-    marginTop: 90,
-  },
-  writeyazi: {
-    margin: 20,
-    color: 'white',
   },
 });

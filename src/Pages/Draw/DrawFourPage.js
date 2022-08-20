@@ -4,18 +4,20 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
+  Image,
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara.png';
+import Kitap1 from '../../assets/yazmasanati.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import BackgroundColor from '../../components/Common/BackgroundColor';
 
-class WriteSixPage extends React.Component {
+class DrawFivePage extends React.Component {
   render() {
     return (
-      <View>
+      <SafeAreaView>
         <View style={styles.container}>
           <ImageBackground
             style={styles.imageContainer}
@@ -25,26 +27,24 @@ class WriteSixPage extends React.Component {
             <BackgroundColor />
           </ImageBackground>
         </View>
-        <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>6</Text>
-          <Text style={styles.writetitle}>
-            Bazen ilham ne yaparsan yap gelmez. Eğer hala ilham gelmediyse
-            düşünme dışarı çık ve sosyalleş! Başka insanların düşünceleri sende
-            bir ilham ışığı yakabilir.
+        <View style={styles.genelContainer}>
+          <Text style={styles.titleBir}>4</Text>
+          <Text style={styles.titleİki}>
+            Senin için seçtiğimiz müzikler belki ilham gelmesi için yardımcı
+            olur.
           </Text>
+          <Text style={styles.rastgele}>Rastgele müzik öner</Text>
         </View>
-        <Text style={styles.writeyazi}>
-          Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
-        </Text>
+
         <ButtonDevam
-          image={require('../../assets/icons/home.png')}
-          onPressHandler={() => this.props.navigation.navigate('Home')}
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => this.props.navigation.navigate('DrawFivePage')}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
-export default WriteSixPage;
+export default DrawFivePage;
 
 const styles = StyleSheet.create({
   container: {
@@ -55,24 +55,30 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  writetitle: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    paddingTop: 8,
-    color: 'white',
-  },
 
-  writetext: {
+  titleBir: {
+    fontWeight: 'bold',
+    color: '#E0D1FF',
+    fontSize: 20,
+    marginTop: 15,
+  },
+  titleİki: {
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
+    marginTop: 5,
+    flexDirection: 'column',
+    alignItems: 'center',
   },
-  writeContainer: {
-    margin: 20,
-    paddingTop: 100,
-    marginTop: 90,
+  genelContainer: {
+    borderRadius: 20,
+    margin: 5,
+    padding: 15,
   },
-  writeyazi: {
-    margin: 20,
-    color: 'white',
+  rastgele: {
+    color: '#56E1FF',
+    fontSize: 18,
+    fontWeight: 'bold',
+    paddingTop: 10,
   },
 });

@@ -4,14 +4,15 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
-  FlatList,
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
+import BackgroundColor from '../../components/Common/BackgroundColor';
+
 class WriteThreePage extends React.Component {
   render() {
     return (
@@ -19,9 +20,11 @@ class WriteThreePage extends React.Component {
         <View style={styles.container}>
           <ImageBackground
             style={styles.imageContainer}
-            source={Image}
+            source={Image1}
             resizeMode="stretch"
-            alt="background"></ImageBackground>
+            alt="background">
+            <BackgroundColor />
+          </ImageBackground>
         </View>
         <View style={styles.genelContainer}>
           <Text style={styles.titleBir}>3</Text>
@@ -40,7 +43,7 @@ class WriteThreePage extends React.Component {
           <ButtonDevam
             image={require('../../assets/icons/right.png')}
             onPressHandler={() =>
-              this.props.navigation.navigate('WriteThreePage')
+              this.props.navigation.navigate('WriteFourPage')
             }
           />
         </View>

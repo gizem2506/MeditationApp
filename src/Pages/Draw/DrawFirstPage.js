@@ -12,7 +12,7 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import BackgroundColor from '../../components/Common/BackgroundColor';
 const {width, height} = Dimensions.get('window');
 
-class WriteFirstPage extends React.Component {
+class DrawFirstPage extends React.Component {
   render() {
     return (
       <View>
@@ -28,14 +28,14 @@ class WriteFirstPage extends React.Component {
 
         <Text style={styles.text1}>1</Text>
         <Text style={styles.title1}>
-          "Şu an" yazmaya başlamak için en iyi andır!
+          "Şu an" çizmeye başlamak için en iyi andır!
         </Text>
 
         <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
           onPressHandler={() =>
-            this.props.navigation.navigate('WriteSecondPage')
+            this.props.navigation.navigate('DrawSecondPage')
           }
         />
       </View>
@@ -43,7 +43,7 @@ class WriteFirstPage extends React.Component {
   }
 }
 
-export default WriteFirstPage;
+export default DrawFirstPage;
 
 const styles = StyleSheet.create({
   container: {

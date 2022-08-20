@@ -27,18 +27,12 @@ class WriteSixPage extends React.Component {
         </View>
         <View style={styles.writeContainer}>
           <Text style={styles.writetext}>6</Text>
-          <Text style={styles.writetitle}>
-            Bazen ilham ne yaparsan yap gelmez. Eğer hala ilham gelmediyse
-            düşünme dışarı çık ve sosyalleş! Başka insanların düşünceleri sende
-            bir ilham ışığı yakabilir.
-          </Text>
+          <Text style={styles.writetitle}>Rastgele objeler öner</Text>
         </View>
-        <Text style={styles.writeyazi}>
-          Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
-        </Text>
+
         <ButtonDevam
-          image={require('../../assets/icons/home.png')}
-          onPressHandler={() => this.props.navigation.navigate('Home')}
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => this.props.navigation.navigate('DrawSevenPage')}
         />
       </View>
     );
@@ -70,9 +64,5 @@ const styles = StyleSheet.create({
     margin: 20,
     paddingTop: 100,
     marginTop: 90,
-  },
-  writeyazi: {
-    margin: 20,
-    color: 'white',
   },
 });
