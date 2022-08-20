@@ -10,6 +10,7 @@ const {width, height} = Dimensions.get('window');
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
+import BackgroundColor from '../../components/Common/BackgroundColor';
 class WriteSecondPage extends React.Component {
   render() {
     return (
@@ -19,7 +20,9 @@ class WriteSecondPage extends React.Component {
             style={styles.imageContainer}
             source={Image}
             resizeMode="stretch"
-            alt="background"></ImageBackground>
+            alt="background">
+            <BackgroundColor />
+          </ImageBackground>
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.textBir}>2 </Text>

@@ -62,5 +62,6 @@ const styles = StyleSheet.create({
   },
   moodText: {
     textAlign: 'center',
+    color:'white'
   },
 });
