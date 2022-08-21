@@ -49,6 +49,7 @@ const HomeScreen = ({navigation}) => {
               image={'https://cdn-icons-png.flaticon.com/512/44/44386.png'}
               isImageUri
               bgColor={'#6320EE'}
+              textColor={'white'}
               onPress={null}
             />
             <HomeScreenButton
@@ -163,6 +164,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 14,
+
     borderRadius: 10,
   },
 });
