@@ -9,6 +9,7 @@ import {
 import Image1 from '../../assets/manzara2.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
+import Background from '../../components/Common/Background';
 const {width, height} = Dimensions.get('window');
 
 class WriteFirstPage extends React.Component {
@@ -20,7 +21,10 @@ class WriteFirstPage extends React.Component {
             style={styles.imagecontainer}
             source={Image1}
             resizeMode="stretch"
-            alt="background"></ImageBackground>
+            alt="background">
+                          <Background/>
+
+            </ImageBackground>
         </View>
 
         <Text style={styles.text1}>1</Text>

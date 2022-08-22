@@ -14,6 +14,7 @@ import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
 import HomeScreenButton from '../Common/HomeScreenButton';
+import Background from '../Common/Background';
 const {width, height} = Dimensions.get('window');
 
 const HomeScreen = ({navigation}) => {
@@ -32,6 +33,7 @@ const HomeScreen = ({navigation}) => {
             source={Image}
             resizeMode="stretch"
             alt="background">
+            <Background/>
           </ImageBackground>
         </View>
       </View>
