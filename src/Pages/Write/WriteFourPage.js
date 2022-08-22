@@ -8,11 +8,13 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara14.jpg';
 import Kitap1 from '../../assets/yazmasanati.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
-import BackgroundColor from '../../components/Common/BackgroundColor';
+import Book from '../../components/Common/Book';
+import {CustomImage} from '../../components/Common/CustomImage';
+import {ScrollView} from 'react-native-gesture-handler';
 
 class WriteFourPage extends React.Component {
   render() {
@@ -24,7 +26,6 @@ class WriteFourPage extends React.Component {
             source={Image1}
             resizeMode="stretch"
             alt="background">
-            <BackgroundColor />
           </ImageBackground>
         </View>
         <View style={styles.genelContainer}>
@@ -35,17 +36,27 @@ class WriteFourPage extends React.Component {
           </Text>
           <Text style={styles.rastgele}>Rastgele kitap öner</Text>
         </View>
-        <View style={styles.kitapContainer}>
-          <View>
-            <Image style={styles.kitaplogo} source={Kitap1} />
-            <Text style={styles.kitapTitle}>Yazma Sanatı</Text>
-            <Text style={styles.kitapText}>Stephen King</Text>
-          </View>
-          <View>
-            <Image style={styles.kitaplogo} source={Kitap1} />
-            <Text style={styles.kitapTitle}>Yazma Sanatı</Text>
-            <Text style={styles.kitapText}>Stephen King</Text>
-          </View>
+        <View style={styles.bookContainer}>
+          <Book
+            title={'Yazma Sanatı'}
+            content={'Stephan King'}
+            image={require('../../assets/yazmasanati.jpg')}
+          />
+          <Book
+            title={'Yazma Sanatı'}
+            content={'Stephan King'}
+            image={require('../../assets/yazmasanati.jpg')}
+          />
+          <Book
+            title={'Yazma Sanatı'}
+            content={'Stephan King'}
+            image={require('../../assets/yazmasanati.jpg')}
+          />
+          <Book
+            title={'Yazma Sanatı'}
+            content={'Stephan King'}
+            image={require('../../assets/yazmasanati.jpg')}
+          />
         </View>
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
@@ -66,33 +77,12 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  kitaplogo: {
-    width: 140,
-    height: 170,
-  },
-  kitapContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin:5,
-  },
-  kitapTitle: {
-    fontWeight: 'bold',
-    color: 'white',
-    marginTop: 18,
-    textAlign: 'center'
-  },
-  kitapText: {
-    color: 'white',
-    textAlign: 'center'
 
-  },
   titleBir: {
     fontWeight: 'bold',
     color: '#E0D1FF',
-    fontSize: 20,
-    marginTop: 15,
+    fontSize: 18,
+    marginTop: 9,
   },
   titleİki: {
     fontSize: 20,
@@ -104,7 +94,7 @@ const styles = StyleSheet.create({
   },
   genelContainer: {
     borderRadius: 20,
-    margin: 5,
+    margin: 8,
     padding: 15,
   },
   rastgele: {
@@ -112,5 +102,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     paddingTop: 10,
+  },
+
+  bookContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    paddingLeft: 30,
   },
 });

@@ -12,8 +12,6 @@ const ButtonDevam = props => {
         height={20}
         source={image}
       />
-
-      <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -28,11 +26,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignSelf: 'flex-end',
     padding: 13,
-    margin:7
-
+    margin: 7,
   },
-
-  customImage: {
-  },
-  buttonText: {},
+  customImage:{
+   marginLeft:7
+  }
 });

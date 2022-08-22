@@ -10,7 +10,6 @@ import {
 import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import MoodCard from '../Card/MoodCard';
-import BackgroundColor from '../Common/BackgroundColor';
 
 const {width, height} = Dimensions.get('window');
 
@@ -85,7 +84,6 @@ const MoodScreen = () => {
           </View>
         </View>
 
-        <BackgroundColor />
       </ScrollView>
     </SafeAreaView>
   );

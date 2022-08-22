@@ -8,10 +8,9 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara3.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
-import BackgroundColor from '../../components/Common/BackgroundColor';
 import MoodCard from '../../components/Card/MoodCard';
 import {ScrollView} from 'react-native-gesture-handler';
 
@@ -37,41 +36,45 @@ const servistenGelenDatalar = [
     image: require('../../assets/moodbg.jpeg'),
   },
 ];
+
 class WriteFivePage extends React.Component {
   render() {
     return (
-      <ScrollView>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="stretch"
-            alt="background">
-            <BackgroundColor />
-          </ImageBackground>
-        </View>
-        <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>5</Text>
-          <Text style={styles.writetitle}>
-            Özgür olun, daha da özgür... En özgür hissedeceğiniz hale bürünmeye
-            çalışın
-          </Text>
-          <Text style={styles.writeyazi}>
-            Burada sizin için seçilen ortamlarımızdan yararlanabilirsiniz{' '}
-          </Text>
-        </View>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="stretch"
+          alt="background">
+          <ScrollView
+            contentContainerStyle={{
+              paddingBottom: 120,
+            }}>
+            <View style={styles.writeContainer}>
+              <Text style={styles.writetext}>5</Text>
+              <Text style={styles.writetitle}>
+                Özgür olun, daha da özgür... En özgür hissedeceğiniz hale
+                bürünmeye çalışın
+              </Text>
+              <Text style={styles.writeyazi}>
+                Burada sizin için seçilen ortamlarımızdan yararlanabilirsiniz{' '}
+              </Text>
+            </View>
+            <View style={styles.moodContainer}>
+              {servistenGelenDatalar.map((item, index) => {
+                return <MoodCard item={item} key={index} />;
+              })}
+            </View>
 
-        <View style={styles.moodContainer}>
-          {servistenGelenDatalar.map((item, index) => {
-            return <MoodCard item={item} key={index} />;
-          })}
-        </View>
-
-        <ButtonDevam
-          image={require('../../assets/icons/right.png')}
-          onPressHandler={() => this.props.navigation.navigate('WriteSixPage')}
-        />
-      </ScrollView>
+            <ButtonDevam
+              image={require('../../assets/icons/right.png')}
+              onPressHandler={() =>
+                this.props.navigation.navigate('WriteSixPage')
+              }
+            />
+          </ScrollView>
+        </ImageBackground>
+      </View>
     );
   }
 }
@@ -87,12 +90,6 @@ const styles = StyleSheet.create({
     width: width,
   },
   moodContainer: {
-    position: 'absolute',
-    zIndex: 100,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    top: 0,
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
@@ -101,7 +98,7 @@ const styles = StyleSheet.create({
   writetitle: {
     fontWeight: 'bold',
     fontSize: 20,
-    paddingTop: 8,
+    paddingTop: 4,
     color: 'white',
   },
 
@@ -111,11 +108,11 @@ const styles = StyleSheet.create({
   },
   writeContainer: {
     margin: 20,
-    paddingTop: 100,
-    marginTop: 90,
+    paddingTop: 5,
+    marginTop: 50,
   },
   writeyazi: {
-    margin: 20,
+    paddingTop:10,
     color: 'white',
   },
 });

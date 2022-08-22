@@ -7,11 +7,11 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara16.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
-import BackgroundColor from '../../components/Common/BackgroundColor';
+import Pattern from '../../components/Common/Pattern';
 
 class DrawThreePage extends React.Component {
   render() {
@@ -23,17 +23,19 @@ class DrawThreePage extends React.Component {
             source={Image1}
             resizeMode="stretch"
             alt="background">
-            <BackgroundColor />
           </ImageBackground>
         </View>
         <View style={styles.genelContainer}>
           <Text style={styles.titleBir}>3</Text>
           <Text style={styles.titleİki}>
-           Aşağıdaki desenler sana ilham verebilir:
+            Aşağıdaki desenler sana ilham verebilir:
           </Text>
-        
+
           <Text style={styles.rastgele}>Rastgele desen öner</Text>
-          
+          <View style={styles.patternContainer}>
+            <Pattern image={require('../../assets/pattern.jpg')} />
+            <Pattern image={require('../../assets/pattern2.jpg')} />
+          </View>
           <ButtonDevam
             image={require('../../assets/icons/right.png')}
             onPressHandler={() =>
@@ -53,7 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  
   imageContainer: {
     height: height,
     width: width,
@@ -83,6 +84,10 @@ const styles = StyleSheet.create({
     margin: 20,
     padding: 20,
   },
- 
- 
+  patternContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    paddingTop: 45,
+  },
 });

@@ -7,11 +7,10 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara4.jpeg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
-import BackgroundColor from '../../components/Common/BackgroundColor';
 
 class WriteThreePage extends React.Component {
   render() {
@@ -23,7 +22,6 @@ class WriteThreePage extends React.Component {
             source={Image1}
             resizeMode="stretch"
             alt="background">
-            <BackgroundColor />
           </ImageBackground>
         </View>
         <View style={styles.genelContainer}>

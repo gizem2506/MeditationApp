@@ -14,8 +14,8 @@ import Image from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
 import HomeScreenButton from '../Common/HomeScreenButton';
-import BackgroundColor from '../Common/BackgroundColor';
 const {width, height} = Dimensions.get('window');
+
 const HomeScreen = ({navigation}) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
@@ -32,7 +32,6 @@ const HomeScreen = ({navigation}) => {
             source={Image}
             resizeMode="stretch"
             alt="background">
-            <BackgroundColor />
           </ImageBackground>
         </View>
       </View>
@@ -65,7 +64,7 @@ const HomeScreen = ({navigation}) => {
             <HomeScreenButton
               text={'Düşünüyorum'}
               image={require('../../assets/icons/Vectordüşünüyorum.png')}
-              onPress={null}
+              onPressHandler={() => navigation.navigate('Think')}
             />
             <HomeScreenButton
               text={'Besteliyorum'}
@@ -77,16 +76,18 @@ const HomeScreen = ({navigation}) => {
         <Text style={styles.veyatext}>veya</Text>
         <View style={styles.dropdowngenel}>
           <View style={styles.dropdowncontainer}>
-            <DropDownPicker
-              style={styles.dropdown}
-              placeholder="Bugun nasıl hissediyorsun ?"
-              open={open}
-              value={value}
-              items={items}
-              setOpen={setOpen}
-              setValue={setValue}
-              setItems={setItems}
-            />
+            <View style={{flex: 3}}>
+              <DropDownPicker
+                style={styles.dropdown}
+                placeholder="Bugun nasıl hissediyorsun ?"
+                open={open}
+                value={value}
+                items={items}
+                setOpen={setOpen}
+                setValue={setValue}
+                setItems={setItems}
+              />
+            </View>
             <TouchableOpacity style={styles.ortam}>
               <Text style={{color: 'white'}}>Ortamı bul</Text>
             </TouchableOpacity>
@@ -152,7 +153,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#F3F0FA',
     borderColor: '#F3F0FA',
-    width: '75%',
   },
   ortamtext: {
     textAlign: 'center',
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 14,
-
     borderRadius: 10,
+    flex: 1,
   },
 });

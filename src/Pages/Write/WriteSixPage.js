@@ -7,10 +7,9 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara5.jpeg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
-import BackgroundColor from '../../components/Common/BackgroundColor';
 
 class WriteSixPage extends React.Component {
   render() {
@@ -22,7 +21,6 @@ class WriteSixPage extends React.Component {
             source={Image1}
             resizeMode="stretch"
             alt="background">
-            <BackgroundColor />
           </ImageBackground>
         </View>
         <View style={styles.writeContainer}>

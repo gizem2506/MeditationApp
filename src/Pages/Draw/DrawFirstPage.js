@@ -6,10 +6,9 @@ import {
   SafeAreaView,
   StyleSheet,
 } from 'react-native';
-import Image1 from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara18.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
-import BackgroundColor from '../../components/Common/BackgroundColor';
 const {width, height} = Dimensions.get('window');
 
 class DrawFirstPage extends React.Component {
@@ -22,7 +21,6 @@ class DrawFirstPage extends React.Component {
             source={Image1}
             resizeMode="stretch"
             alt="background">
-            <BackgroundColor />
           </ImageBackground>
         </View>
 

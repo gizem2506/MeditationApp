@@ -7,10 +7,12 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara.png';
+import Image1 from '../../assets/manzara19.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
-import BackgroundColor from '../../components/Common/BackgroundColor';
+import {CustomImage} from '../../components/Common/CustomImage';
+import Book from '../../components/Common/Book';
+import Challange from '../../components/Common/Challenge';
 class DrawSecondPage extends React.Component {
   render() {
     return (
@@ -21,7 +23,6 @@ class DrawSecondPage extends React.Component {
             source={Image1}
             resizeMode="stretch"
             alt="background">
-            <BackgroundColor />
           </ImageBackground>
         </View>
         <View style={styles.textContainer}>
@@ -32,12 +33,13 @@ class DrawSecondPage extends React.Component {
           </Text>
           <Text style={styles.rastgele}>Rastgele challange öner</Text>
         </View>
-
+        <View style={styles.challangeContainer}>
+          <Challange image={require('../../assets/drawche.jpg')} />
+          <Challange image={require('../../assets/drawche2.jpg')} />
+        </View>
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
-          onPressHandler={() =>
-            this.props.navigation.navigate('DrawThreePage')
-          }
+          onPressHandler={() => this.props.navigation.navigate('DrawThreePage')}
         />
       </View>
     );
@@ -58,21 +60,28 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     fontSize: 20,
-    marginTop: 80,
+    marginTop: 120,
   },
   textİki: {
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
-    marginTop: 5,
+    marginTop: 9,
   },
   textContainer: {
-    margin: 10,
+    margin: 20,
   },
 
   rastgele: {
     color: '#56E1FF',
     fontSize: 18,
     fontWeight: 'bold',
+    paddingTop: 20,
+  },
+  challangeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    paddingLeft: 18,
   },
 });

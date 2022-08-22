@@ -21,3 +21,4 @@ export const CustomImage = memo(
     return renderImage();
   },
 );
+export default CustomImage;4

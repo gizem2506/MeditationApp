@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WriteNavigation from './WriteNavigation';
 import DrawNavigation from './DrawNavigation';
+import ThinkNavigation from './ThinkNavigation';
 const Stack = createNativeStackNavigator();
 
 const RouterNavigation = () => (
@@ -16,7 +17,7 @@ const RouterNavigation = () => (
       <Stack.Screen name="Mood" component={MoodScreen} />
       <Stack.Screen name="Write" component={WriteNavigation} />
       <Stack.Screen name="Draw" component={DrawNavigation} />
-      {/*<Stack.Screen name="Think" component={ThinkDetail} />*/}
+      <Stack.Screen name="Think" component={ThinkNavigation} />
       {/*<Stack.Screen name="Compose" component={ComposeDetail} />*/}
     </Stack.Navigator>
   </NavigationContainer>
