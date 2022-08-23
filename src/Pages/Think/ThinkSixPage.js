@@ -10,6 +10,7 @@ const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara20.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
+import Background from '../../components/Common/Background';
 
 class ThinkSixPage extends React.Component {
   render() {
@@ -19,8 +20,9 @@ class ThinkSixPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.thinkContainer}>

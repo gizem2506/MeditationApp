@@ -10,6 +10,8 @@ import {
 const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara8.jpg';
 import {Dimensions} from 'react-native';
+import Background from '../../components/Common/Background';
+
 import ButtonDevam from '../../components/Common/ButtonDevam';
 
 class DrawSevenPage extends React.Component {
@@ -20,8 +22,9 @@ class DrawSevenPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.writeContainer}>

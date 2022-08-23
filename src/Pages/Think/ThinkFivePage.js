@@ -11,6 +11,8 @@ import Image1 from '../../assets/manzara18.jpg';
 import {Dimensions} from 'react-native';
 import MoodCard from '../../components/Card/MoodCard';
 import ButtonDevam from '../../components/Common/ButtonDevam';
+import Background from '../../components/Common/Background';
+
 const servistenGelenDatalar = [
   {
     title: 'Title 1',
@@ -41,8 +43,9 @@ class ThinkFivePage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.thinkContainer}>

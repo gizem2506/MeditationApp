@@ -11,6 +11,7 @@ import Image1 from '../../assets/manzara3.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Article from '../../components/Common/Article';
+import Background from '../../components/Common/Background';
 
 class WriteSixPage extends React.Component {
   render() {
@@ -20,8 +21,9 @@ class WriteSixPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.writeContainer}>
@@ -95,14 +97,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
-    margin:10,
-    padding:25
+    margin: 10,
+    padding: 25,
   },
   rastgele: {
     color: '#56E1FF',
     fontSize: 15,
     fontWeight: 'bold',
     paddingTop: 5,
-    marginLeft:18
+    marginLeft: 18,
   },
 });

@@ -11,6 +11,7 @@ import Image1 from '../../assets/manzara4.jpeg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
+import Background from '../../components/Common/Background';
 
 class WriteThreePage extends React.Component {
   render() {
@@ -20,8 +21,9 @@ class WriteThreePage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.genelContainer}>
@@ -57,12 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
+  
   title: {
     fontSize: 32,
   },
@@ -78,7 +75,7 @@ const styles = StyleSheet.create({
   },
   titleBir: {
     fontWeight: 'bold',
-    color: '#E0D1FF',
+    color: '#ffffff',
     fontSize: 20,
     marginTop: 85,
   },
@@ -92,8 +89,8 @@ const styles = StyleSheet.create({
   },
   genelContainer: {
     borderRadius: 20,
-    margin: 20,
-    padding: 20,
+    margin: 10,
+    padding: 15,
   },
   titletext: {
     paddingTop: 20,
@@ -102,6 +99,6 @@ const styles = StyleSheet.create({
   loremContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingTop: 15,
+    paddingTop: 20,
   },
 });

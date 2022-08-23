@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
-import {Title, Paragraph} from 'react-native-paper';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {Title} from 'react-native-paper';
 import {CustomImage} from '../Common/CustomImage';
 
 const MoodCard = props => {
   const [isClicked, setisClicked] = useState(false);
 
-  const {onMoodDetailPressed, item} = props;
+  const {onMoodDetailPressed} = props;
 
-  const {title, content, image} = item;
+  const {title, content, image} = props;
 
   return (
     <TouchableOpacity
       style={styles.button}
       onPress={() => setisClicked(!isClicked)}>
-      {isClicked ? (
+      {!isClicked ? (
         <CustomImage
           style={styles.customImg}
           width={140}
@@ -25,7 +25,7 @@ const MoodCard = props => {
       ) : (
         <View>
           <Title style={styles.moodTitle}> {title}</Title>
-          <Paragraph> {content}</Paragraph>
+          <Text style={styles.moodsText}> {content}</Text>
           <TouchableOpacity
             onPress={onMoodDetailPressed}
             style={styles.touchableButton}>
@@ -46,16 +46,19 @@ const styles = StyleSheet.create({
     margin: 14,
     backgroundColor: 'white',
   },
-  customImg: {
-  },
+
   touchableButton: {
     backgroundColor: '#6320EE',
     borderRadius: 20,
-    margin: 20,
-    marginTop: 55,
+    margin: 15,
+    marginTop: 5,
+  },
+  moodsText: {
+    padding: 5,
   },
   moodTitle: {
     fontSize: 18,
+    margin: 5,
   },
   moodText: {
     textAlign: 'center',

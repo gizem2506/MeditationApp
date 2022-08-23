@@ -31,13 +31,13 @@ const HomeScreen = ({navigation}) => {
           <ImageBackground
             style={styles.imagecontainer}
             source={Image}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
-            <Background/>
+            <Background />
           </ImageBackground>
         </View>
       </View>
-      <View>
+      <View style={styles.ilham1Container}>
         <Text style={styles.ambianchetext}>Ambianche hoş geldiniz!</Text>
         <Text style={styles.ilhamtext}>
           İlhamınızın gelmesi için gerekli ortamlar sağlandı. Hemen aşağıdan
@@ -119,34 +119,34 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 
-  oncontainer: {},
   veyatext: {
-    color: '#ffffff',
+    padding: 15,
+    color: 'white',
     textAlign: 'center',
-    marginTop: 5,
   },
   ilhamcontainer: {
     backgroundColor: '#ffffff',
     borderRadius: 20,
-    marginTop: 3,
+    marginTop: 10,
     padding: 10,
-    margin: 20,
     flexDirection: 'column',
     alignItems: 'center',
   },
-
+  ilham1Container: {
+    padding: 25,
+  },
   imagecontainer: {
     height: height,
     width: width,
   },
   ilhamtext: {
     padding: 5,
+    color: '#ffffff',
   },
   dropdowncontainer: {
     backgroundColor: '#ffffff',
     borderRadius: 20,
     padding: 10,
-    margin: 20,
     flexDirection: 'row',
     alignItems: 'center',
   },

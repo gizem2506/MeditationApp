@@ -10,6 +10,8 @@ const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara3.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
+import Background from '../../components/Common/Background';
+
 class WriteSecondPage extends React.Component {
   render() {
     return (
@@ -18,8 +20,9 @@ class WriteSecondPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.textContainer}>
@@ -83,16 +86,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     fontSize: 20,
+
     marginTop: 80,
   },
   textİki: {
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: 'bold',
     color: 'white',
     marginTop: 10,
   },
   textContainer: {
     margin: 10,
+    padding: 15,
   },
   genelContainer: {
     marginTop: 10,
@@ -100,11 +105,13 @@ const styles = StyleSheet.create({
   textgenel: {
     fontSize: 20,
     color: 'white',
-    margin: 5,
+    margin: 6,
+    marginLeft: 0,
   },
   textözel: {
     color: '#E0D1FF',
     margin: 5,
+    marginLeft: 0,
   },
   rastgele: {
     color: '#56E1FF',

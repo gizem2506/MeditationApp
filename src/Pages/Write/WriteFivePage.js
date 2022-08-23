@@ -8,34 +8,12 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara3.png';
+import Image1 from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import MoodCard from '../../components/Card/MoodCard';
 import {ScrollView} from 'react-native-gesture-handler';
-
-const servistenGelenDatalar = [
-  {
-    title: 'Title 1',
-    content: 'Content 1',
-    image: require('../../assets/moodbg.jpeg'),
-  },
-  {
-    title: 'Title 2',
-    content: 'Content 2',
-    image: require('../../assets/manzara.png'),
-  },
-  {
-    title: 'Title 3',
-    content: 'Content 3',
-    image: require('../../assets/moodbg.jpeg'),
-  },
-  {
-    title: 'Title 4',
-    content: 'Content 4',
-    image: require('../../assets/moodbg.jpeg'),
-  },
-];
+import Background from '../../components/Common/Background';
 
 class WriteFivePage extends React.Component {
   render() {
@@ -44,8 +22,9 @@ class WriteFivePage extends React.Component {
         <ImageBackground
           style={styles.imageContainer}
           source={Image1}
-          resizeMode="stretch"
+          resizeMode="cover"
           alt="background">
+          <Background />
           <ScrollView
             contentContainerStyle={{
               paddingBottom: 120,
@@ -61,9 +40,26 @@ class WriteFivePage extends React.Component {
               </Text>
             </View>
             <View style={styles.moodContainer}>
-              {servistenGelenDatalar.map((item, index) => {
-                return <MoodCard item={item} key={index} />;
-              })}
+              <MoodCard
+                title={'Deniz Kenarı'}
+                content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+                image={require('../../assets//moodbg.jpeg')}
+              />
+              <MoodCard
+                title={'Deniz Kenarı'}
+                content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+                image={require('../../assets//moodbg.jpeg')}
+              />
+              <MoodCard
+                title={'Deniz Kenarı'}
+                content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+                image={require('../../assets//moodbg.jpeg')}
+              />
+              <MoodCard
+                title={'Deniz Kenarı'}
+                content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+                image={require('../../assets//moodbg.jpeg')}
+              />
             </View>
 
             <ButtonDevam
@@ -105,6 +101,7 @@ const styles = StyleSheet.create({
   writetext: {
     fontWeight: 'bold',
     color: 'white',
+    fontSize: 20
   },
   writeContainer: {
     margin: 20,
@@ -112,7 +109,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   writeyazi: {
-    paddingTop:10,
+    paddingTop: 10,
     color: 'white',
   },
 });

@@ -10,6 +10,7 @@ const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara5.jpeg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
+import Background from '../../components/Common/Background';
 
 class WriteSixPage extends React.Component {
   render() {
@@ -19,8 +20,9 @@ class WriteSixPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.writeContainer}>
@@ -63,6 +65,7 @@ const styles = StyleSheet.create({
   writetext: {
     fontWeight: 'bold',
     color: 'white',
+    fontSize: 20,
   },
   writeContainer: {
     margin: 20,

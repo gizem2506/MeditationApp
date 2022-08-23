@@ -15,6 +15,7 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import Book from '../../components/Common/Book';
 import {CustomImage} from '../../components/Common/CustomImage';
 import {ScrollView} from 'react-native-gesture-handler';
+import Background from '../../components/Common/Background';
 
 class WriteFourPage extends React.Component {
   render() {
@@ -24,8 +25,9 @@ class WriteFourPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.genelContainer}>
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
 
   titleBir: {
     fontWeight: 'bold',
-    color: '#E0D1FF',
+    color: 'white',
     fontSize: 18,
     marginTop: 9,
   },
@@ -108,6 +110,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    paddingLeft: 30,
+    padding:20,
   },
 });

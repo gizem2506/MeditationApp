@@ -13,6 +13,8 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import {CustomImage} from '../../components/Common/CustomImage';
 import Book from '../../components/Common/Book';
 import Challange from '../../components/Common/Challenge';
+import Background from '../../components/Common/Background';
+
 class DrawSecondPage extends React.Component {
   render() {
     return (
@@ -21,8 +23,9 @@ class DrawSecondPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.textContainer}>

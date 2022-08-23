@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 5,
+    margin: 10,
   },
   textBody: {
     fontWeight: 'bold',
-    paddingRight: 5,
-    margin: 4,
-    width: Dimensions.get('window').width / 7,
+    paddingRight: 10,
+    margin: 9,
+    width: Dimensions.get('window').width /7,
   },
   textStyle: {
     color: 'white',

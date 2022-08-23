@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     fontWeight: 'bold',
-    padding: 2,
+    padding: 6,
     margin: 5,
     paddingHorizontal: 90,
     flexDirection: 'row',

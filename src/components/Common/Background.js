@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: 'purple',
-    opacity: 0.2,
+    backgroundColor: '#6320EE',
+    opacity: 0.6,
   },
 });

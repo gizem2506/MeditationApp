@@ -10,6 +10,7 @@ const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara9.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
+import Background from '../../components/Common/Background';
 
 class ThinkSecondPage extends React.Component {
   render() {
@@ -19,8 +20,9 @@ class ThinkSecondPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.thinkContainer}>
@@ -69,12 +71,10 @@ const styles = StyleSheet.create({
     margin: 45,
     paddingTop: 170,
     marginTop: 100,
-  
   },
   thinkyazi: {
     marginLeft: 5,
     color: 'white',
-    margin:20
-    
+    margin: 20,
   },
 });

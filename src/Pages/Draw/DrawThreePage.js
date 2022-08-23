@@ -12,6 +12,7 @@ import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
 import Pattern from '../../components/Common/Pattern';
+import Background from '../../components/Common/Background';
 
 class DrawThreePage extends React.Component {
   render() {
@@ -21,8 +22,9 @@ class DrawThreePage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
         <View style={styles.genelContainer}>
@@ -67,9 +69,9 @@ const styles = StyleSheet.create({
   },
   titleBir: {
     fontWeight: 'bold',
-    color: '#E0D1FF',
+    color: 'white',
     fontSize: 20,
-    marginTop: 85,
+    marginTop: 100,
   },
   titleİki: {
     fontSize: 20,
@@ -81,8 +83,8 @@ const styles = StyleSheet.create({
   },
   genelContainer: {
     borderRadius: 20,
-    margin: 20,
-    padding: 20,
+    margin: 10,
+    padding: 15,
   },
   patternContainer: {
     flexDirection: 'row',

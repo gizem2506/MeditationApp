@@ -10,6 +10,7 @@ import Image1 from '../../assets/manzara18.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 const {width, height} = Dimensions.get('window');
+import Background from '../../components/Common/Background';
 
 class DrawFirstPage extends React.Component {
   render() {
@@ -19,17 +20,19 @@ class DrawFirstPage extends React.Component {
           <ImageBackground
             style={styles.imagecontainer}
             source={Image1}
-            resizeMode="stretch"
+            resizeMode="cover"
             alt="background">
+            <Background />
           </ImageBackground>
         </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text1}>1</Text>
+          <Text style={styles.title1}>
+            "Şu an" çizmeye başlamak için en iyi andır!
+          </Text>
 
-        <Text style={styles.text1}>1</Text>
-        <Text style={styles.title1}>
-          "Şu an" çizmeye başlamak için en iyi andır!
-        </Text>
-
-        <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
+          <Text style={styles.title2}>Daha iyisini beklemeyin.</Text>
+        </View>
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
           onPressHandler={() =>
@@ -52,20 +55,22 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
+  textContainer: {
+    margin: 10,
+  },
 
   text1: {
-    marginLeft: 5,
     fontWeight: 'bold',
     color: 'white',
-    marginTop: 50,
-    fontSize: 50,
+    fontSize: 20,
+    marginTop: 100,
   },
   title1: {
     marginLeft: 5,
     fontWeight: 'bold',
     fontSize: 40,
     color: 'white',
-    marginTop: 50,
+    marginTop: 10,
   },
 
   title2: {

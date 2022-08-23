@@ -3,34 +3,33 @@ import {View, StyleSheet} from 'react-native';
 import {Title, Paragraph} from 'react-native-paper';
 import {CustomImage} from '../Common/CustomImage';
 
-const Book = props => {
+const Moods = props => {
   const {title, content, image} = props;
 
   return (
     <View>
-      <CustomImage width={130} height={140} source={image} resizeMode="cover" />
-      <View style={styles.bookkContainer}>
-        <Title style={styles.bookTitle}> {title}</Title>
-        <Paragraph style={styles.bookParagraph}> {content}</Paragraph>
+      <CustomImage width={130} height={130} source={image} />
+      <View style={styles.moodsContainer}>
+        <Title style={styles.moodsTitle}> {title}</Title>
+        <Paragraph style={styles.moodsParagraph}> {content}</Paragraph>
       </View>
     </View>
   );
 };
 
-export default Book;
-
+export default Moods;
 const styles = StyleSheet.create({
-  bookTitle: {
+  moodsTitle: {
     fontSize: 15,
     color: 'white',
   },
-  bookParagraph: {
+  moodsParagraph: {
     fontSize: 12,
     color: 'white',
   },
-  bookkContainer: {
+  moodsContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    padding: 10,
   },
 });

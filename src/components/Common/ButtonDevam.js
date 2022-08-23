@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     padding: 13,
     margin: 7,
+    
   },
   customImage:{
    marginLeft:7
