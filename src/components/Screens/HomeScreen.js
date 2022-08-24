@@ -77,7 +77,7 @@ const HomeScreen = ({navigation}) => {
             <HomeScreenButton
               text={'Besteliyorum'}
               image={require('../../assets/icons/Vectorbesteliyorum.png')}
-              onPress={null}
+              onPressHandler={() => navigation.navigate('Compose')}
             />
           </View>
         </View>

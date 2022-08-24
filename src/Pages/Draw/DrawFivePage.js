@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   View,
   Text,
   ImageBackground,
   StyleSheet,
   Image,
+  Button,
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
@@ -12,10 +13,8 @@ import Image1 from '../../assets/manzara14.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
-
+import Draw from '../../components/Common/Draw'
 class DrawFivePage extends React.Component {
-  
- 
   render() {
     return (
       <SafeAreaView>
@@ -34,7 +33,6 @@ class DrawFivePage extends React.Component {
             Rastgele bir şeyler karalamaya başla ! Belkide gerisi gelir...
           </Text>
         </View>
-
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
           onPressHandler={() => this.props.navigation.navigate('DrawSixPage')}

@@ -11,6 +11,7 @@ const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara8.jpg';
 import {Dimensions} from 'react-native';
 import Background from '../../components/Common/Background';
+import MoodCard from '../../components/Card/MoodCard';
 
 import ButtonDevam from '../../components/Common/ButtonDevam';
 
@@ -37,7 +38,28 @@ class DrawSevenPage extends React.Component {
         <Text style={styles.title2}>
           İşte sana ilham verebilecek ortamlarımız!
         </Text>
-
+        <View style={styles.moodContainer}>
+          <MoodCard
+            title={'Deniz Kenarı'}
+            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+            image={require('../../assets//moodbg.jpeg')}
+          />
+          <MoodCard
+            title={'Deniz Kenarı'}
+            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+            image={require('../../assets//moodbg.jpeg')}
+          />
+          <MoodCard
+            title={'Deniz Kenarı'}
+            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+            image={require('../../assets//moodbg.jpeg')}
+          />
+          <MoodCard
+            title={'Deniz Kenarı'}
+            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
+            image={require('../../assets//moodbg.jpeg')}
+          />
+        </View>
         <ButtonDevam
           image={require('../../assets/icons/home.png')}
           onPressHandler={() => this.props.navigation.navigate('Home')}
@@ -63,7 +85,12 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     color: 'white',
   },
-
+  moodContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   title2: {
     marginLeft: 20,
     fontSize: 15,
@@ -76,7 +103,6 @@ const styles = StyleSheet.create({
   },
   writeContainer: {
     margin: 20,
-    paddingTop: 100,
-    marginTop: 90,
+    paddingTop: 70,
   },
 });
