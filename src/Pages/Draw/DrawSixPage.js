@@ -38,29 +38,28 @@ class WriteSixPage extends React.Component {
             content={'Stephan King'}
             image={require('../../assets/obje.jpg')}
           />
-
-          <Article
-            title={'Kaktüs'}
-            content={'Stephan King'}
-            image={require('../../assets/obje2.jpg')}
-          />
-
-          <Article
-            title={'Rubik Küp'}
-            content={'Stephan King'}
-            image={require('../../assets/obje3.jpg')}
-          />
-
           <Article
             title={'Masa Lambası'}
             content={'Stephan King'}
             image={require('../../assets/obje4.jpg')}
           />
+          <Article
+            title={'Kaktüs'}
+            content={'Stephan King'}
+            image={require('../../assets/obje2.jpg')}
+          />
+          <Article
+            title={'Rubik Küp'}
+            content={'Stephan King'}
+            image={require('../../assets/obje3.jpg')}
+          />
+          <ButtonDevam
+            image={require('../../assets/icons/right.png')}
+            onPressHandler={() =>
+              this.props.navigation.navigate('DrawSevenPage')
+            }
+          />
         </View>
-        <ButtonDevam
-          image={require('../../assets/icons/right.png')}
-          onPressHandler={() => this.props.navigation.navigate('DrawSevenPage')}
-        />
       </View>
     );
   }
@@ -89,22 +88,21 @@ const styles = StyleSheet.create({
   },
   writeContainer: {
     margin: 20,
-    paddingTop: 100,
-    marginTop: 90,
+    paddingTop: 80,
+    marginTop: 20,
   },
   articleContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
     flexWrap: 'wrap',
-    margin: 10,
-    padding: 25,
+    margin:30,
+
   },
   rastgele: {
     color: '#56E1FF',
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: 'bold',
-    paddingTop: 5,
+    paddingTop: 3,
     marginLeft: 18,
   },
 });

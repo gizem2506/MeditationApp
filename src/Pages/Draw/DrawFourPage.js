@@ -29,12 +29,7 @@ class DrawFivePage extends React.Component {
             <Background />
           </ImageBackground>
         </View>
-        <WebView
-          source={{
-            html: '<iframe width="100%" height="50%" src="https://www.youtube.com/embed/cqyziA30whE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-          }}
-          style={{marginTop: 20}}
-        />
+
         <View style={styles.genelContainer}>
           <Text style={styles.titleBir}>4</Text>
           <Text style={styles.titleİki}>
@@ -88,5 +83,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     paddingTop: 10,
-  },
+  }
 });

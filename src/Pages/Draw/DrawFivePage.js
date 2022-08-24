@@ -14,6 +14,8 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 
 class WriteFivePage extends React.Component {
+  
+ 
   render() {
     return (
       <SafeAreaView>

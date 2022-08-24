@@ -7,7 +7,7 @@ const Article = props => {
   const {title, content, image} = props;
 
   return (
-    <View>
+    <View style={styles.container}>
       <CustomImage width={90} height={90} source={image} />
       <View style={styles.articleContainer}>
         <Title style={styles.articleTitle}> {title}</Title>
@@ -20,17 +20,15 @@ const Article = props => {
 export default Article;
 const styles = StyleSheet.create({
   articleTitle: {
-    fontSize: 15,
+    fontSize: 10,
     color: 'white',
-   
   },
   articleParagraph: {
-    fontSize: 12,
+    fontSize: 10,
     color: 'white',
   },
-  articleContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
+ 
+  container: {
+    margin: 15,
   },
 });

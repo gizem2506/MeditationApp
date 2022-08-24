@@ -64,8 +64,9 @@ const styles = StyleSheet.create({
   },
 
   thinktext: {
-    fontSize: 15,
+    fontSize: 20,
     color: 'white',
+    fontWeight:'bold'
   },
   thinkContainer: {
     margin: 45,

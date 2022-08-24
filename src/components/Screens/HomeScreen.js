@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
+7;
 import {
   View,
   TextInput,
@@ -8,6 +9,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   StyleSheet,
+  Animated,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Image from '../../assets/manzara.png';
@@ -15,6 +17,8 @@ import {Dimensions} from 'react-native';
 import {CustomImage} from '../Common/CustomImage';
 import HomeScreenButton from '../Common/HomeScreenButton';
 import Background from '../Common/Background';
+import {Draw, DrawRef} from '@benjeau/react-native-draw';
+
 const {width, height} = Dimensions.get('window');
 
 const HomeScreen = ({navigation}) => {
@@ -24,6 +28,7 @@ const HomeScreen = ({navigation}) => {
     {label: 'One', value: 'One'},
     {label: 'Two', value: 'Two'},
   ]);
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -37,6 +42,7 @@ const HomeScreen = ({navigation}) => {
           </ImageBackground>
         </View>
       </View>
+
       <View style={styles.ilham1Container}>
         <Text style={styles.ambianchetext}>Ambianche hoş geldiniz!</Text>
         <Text style={styles.ilhamtext}>
@@ -90,8 +96,8 @@ const HomeScreen = ({navigation}) => {
                 setItems={setItems}
               />
             </View>
-            <TouchableOpacity style={styles.ortam}>
-              <Text style={{color: 'white'}}>Ortamı bul</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Mood')}>
+              <Text style={styles.ortam}>Ortamı bul</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -168,5 +174,6 @@ const styles = StyleSheet.create({
     padding: 14,
     borderRadius: 10,
     flex: 1,
+    color: 'white',
   },
 });

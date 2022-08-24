@@ -26,10 +26,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignSelf: 'flex-end',
     padding: 13,
-    margin: 7,
+    margin: 20,
     
   },
   customImage:{
-   marginLeft:7
+   marginLeft:7,
+  
+
   }
 });
