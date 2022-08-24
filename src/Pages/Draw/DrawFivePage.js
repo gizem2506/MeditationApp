@@ -13,7 +13,7 @@ import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 
-class WriteFivePage extends React.Component {
+class DrawFivePage extends React.Component {
   
  
   render() {
@@ -43,7 +43,7 @@ class WriteFivePage extends React.Component {
     );
   }
 }
-export default WriteFivePage;
+export default DrawFivePage;
 
 const styles = StyleSheet.create({
   container: {

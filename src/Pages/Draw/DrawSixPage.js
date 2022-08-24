@@ -13,7 +13,7 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import Article from '../../components/Common/Article';
 import Background from '../../components/Common/Background';
 
-class WriteSixPage extends React.Component {
+class DrawSixPage extends React.Component {
   render() {
     return (
       <View>
@@ -64,7 +64,7 @@ class WriteSixPage extends React.Component {
     );
   }
 }
-export default WriteSixPage;
+export default DrawSixPage;
 
 const styles = StyleSheet.create({
   container: {

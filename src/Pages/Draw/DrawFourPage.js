@@ -16,7 +16,7 @@ import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 
-class DrawFivePage extends React.Component {
+class DrawFourPage extends React.Component {
   render() {
     return (
       <SafeAreaView>
@@ -47,7 +47,7 @@ class DrawFivePage extends React.Component {
     );
   }
 }
-export default DrawFivePage;
+export default DrawFourPage;
 
 const styles = StyleSheet.create({
   container: {
