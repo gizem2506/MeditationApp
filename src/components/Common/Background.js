@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     backgroundColor: '#6320EE',
-    opacity: 0.6,
+    opacity: 0.7,
   },
 });

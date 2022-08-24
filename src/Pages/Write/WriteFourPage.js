@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   genelContainer: {
     borderRadius: 20,
     margin: 8,
-    padding: 15,
+    padding: 10,
   },
   rastgele: {
     color: '#56E1FF',
@@ -110,6 +110,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    padding:20,
+    padding:5,
   },
 });

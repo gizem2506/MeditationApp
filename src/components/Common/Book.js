@@ -7,7 +7,7 @@ const Book = props => {
   const {title, content, image} = props;
 
   return (
-    <View>
+    <View style={styles.kitapContainer}>
       <CustomImage width={130} height={140} source={image} resizeMode="cover" />
       <View style={styles.bookkContainer}>
         <Title style={styles.bookTitle}> {title}</Title>
@@ -28,9 +28,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'white',
   },
+  kitapContainer: {
+    margin: 10,
+  },
   bookkContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 5,
   },
 });

@@ -6,6 +6,7 @@ import {
   TextInput,
   StyleSheet,
   Button,
+  TouchableOpacity,
   ImageBackground,
 } from 'react-native';
 import {io} from 'socket.io-client';
@@ -62,20 +63,21 @@ const ComposeSecondPage = ({route, navigation}) => {
             );
           })}
         </View>
+        <View style={styles.ınputt}>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={setMessage}
+            value={message}
+          />
 
-        <TextInput
-          style={styles.input}
-          onChangeText={setMessage}
-          value={message}
-        />
-  
-        <Button
-          onPress={() => {
-            socket.emit('event', {message: message, userName: userName});
-          }}
-          title=" BUTTON"
-          color="purple"
-        />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              socket.emit('event', {message: message, userName: userName});
+            }}>
+            <Text style={styles.chatButton}>Gönder</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -103,5 +105,34 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: '#FFFFFF',
     margin: 30,
+  },
+  ınputt: {
+    marginTop: 270,
+  },
+
+  textInput: {
+    height: 40,
+    margin: 12,
+    borderWidth: 2,
+    borderRadius: 5,
+    borderColor: 'white',
+    padding: 10,
+  },
+  chatButton: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#ffffff',
+    fontSize: 20,
+  },
+  button: {
+    backgroundColor: 'white',
+    width: 110,
+    height: 50,
+    justifyContent: 'center',
+    borderRadius: 25,
+    marginLeft: 160,
+    borderWidth: 5,
+    borderColor: '#9980FA',
+    backgroundColor: '#9980FA',
   },
 });
