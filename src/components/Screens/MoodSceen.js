@@ -7,26 +7,25 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import Image from '../../assets/moodbg.jpeg';
+import Image1 from '../../assets/moodbg.jpeg';
 import {Dimensions} from 'react-native';
 import MoodCard from '../Card/MoodCard';
 import Background from '../../components/Common/Background';
+import ButtonDevam from '../../components/Common/ButtonDevam';
+import {BlurView} from '@react-native-community/blur';
 
 const {width, height} = Dimensions.get('window');
 
-const MoodScreen = () => {
+const MoodScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.imagecontainer}
-        source={Image}
+        source={Image1}
         resizeMode="cover"
-        alt="background">
-        <Background />
-      </ImageBackground>
+        alt="background"></ImageBackground>
 
-      <Text style={styles.moodText}>Moods</Text>
-
+      <Background />
       <View style={styles.moodContainer}>
         <MoodCard
           title={'Deniz Kenarı'}
@@ -58,7 +57,15 @@ const MoodScreen = () => {
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
           image={require('../../assets//moodbg.jpeg')}
         />
+        <ButtonDevam
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => navigation.navigate('Home')}
+        />
       </View>
+      <BlurView
+        intensity={25}
+        tint="light"
+        style={styles.blurContainer}></BlurView>
     </View>
   );
 };
@@ -77,7 +84,10 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 50,
+    marginTop: 40,
+  },
+  blurContainer: {
+    justifyContent: 'center',
   },
   container: {
     flex: 1,
@@ -92,6 +102,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
     textAlign: 'center',
-    margin:20
+    margin: 20,
   },
 });

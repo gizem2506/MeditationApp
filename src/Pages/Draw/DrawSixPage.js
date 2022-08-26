@@ -39,22 +39,18 @@ class DrawSixPage extends React.Component {
         <View style={styles.articleContainer}>
           <Article
             title={'Dondurma Külahı'}
-            content={'Stephan King'}
             image={require('../../assets/obje.jpg')}
           />
           <Article
             title={'Masa Lambası'}
-            content={'Stephan King'}
             image={require('../../assets/obje4.jpg')}
           />
           <Article
             title={'Kaktüs'}
-            content={'Stephan King'}
             image={require('../../assets/obje2.jpg')}
           />
           <Article
             title={'Rubik Küp'}
-            content={'Stephan King'}
             image={require('../../assets/obje3.jpg')}
           />
           <ButtonDevam

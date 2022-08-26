@@ -38,7 +38,7 @@ class WriteThreePage extends React.Component {
           </Text>
           <View style={styles.rastgeleIcon}>
             <RastgeleButton image={require('../../assets/icons/refresh.png')} />
-            <Text style={styles.rastgele}>Rastgele konu üret</Text>
+            <Text style={styles.rastgele}>Rastgele kelime üret</Text>
           </View>
           <View style={styles.loremContainer}>
             <Kelimeler />

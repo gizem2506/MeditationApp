@@ -25,8 +25,10 @@ const HomeScreen = ({navigation}) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    {label: 'One', value: 'One'},
-    {label: 'Two', value: 'Two'},
+    {label: 'Mutlu', value: 'Mutlu'},
+    {label: 'Üzgün', value: 'Üzgün'},
+    {label: 'Canı Sıkılmış', value: 'Canı Sıkılmış'},
+    {label: 'Heyecanlı', value: 'Heyecanlı'},
   ]);
 
   return (
@@ -76,7 +78,7 @@ const HomeScreen = ({navigation}) => {
             />
             <HomeScreenButton
               text={'Mesajlaşalım!'}
-              image={require('../../assets/icons/chat.jpg')}
+              image={require('../../assets/icons/comment.png')}
               onPressHandler={() => navigation.navigate('Message')}
             />
           </View>
@@ -164,7 +166,7 @@ const styles = StyleSheet.create({
   },
   ortamtext: {
     textAlign: 'center',
-    padding: 10,
+    padding: 20,
     color: 'white',
   },
   ortam: {
@@ -172,7 +174,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 14,
-    borderRadius: 10,
+    borderRadius: 20,
     flex: 1,
     color: 'white',
   },
