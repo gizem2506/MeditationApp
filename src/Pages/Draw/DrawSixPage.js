@@ -12,6 +12,7 @@ import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Article from '../../components/Common/Article';
 import Background from '../../components/Common/Background';
+import RastgeleButton from '../../components/Common/RastgeleButton';
 
 class DrawSixPage extends React.Component {
   render() {
@@ -30,7 +31,10 @@ class DrawSixPage extends React.Component {
           <Text style={styles.writetext}>6</Text>
           <Text style={styles.writetitle}>Rastgele objeler öner</Text>
         </View>
-        <Text style={styles.rastgele}>Rastgele obje öner</Text>
+        <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele obje öner</Text>
+          </View>
 
         <View style={styles.articleContainer}>
           <Article
@@ -100,9 +104,14 @@ const styles = StyleSheet.create({
   },
   rastgele: {
     color: '#56E1FF',
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: 'bold',
-    paddingTop: 3,
-    marginLeft: 18,
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginLeft:19
   },
 });

@@ -16,6 +16,7 @@ import Book from '../../components/Common/Book';
 import {CustomImage} from '../../components/Common/CustomImage';
 import {ScrollView} from 'react-native-gesture-handler';
 import Background from '../../components/Common/Background';
+import RastgeleButton from '../../components/Common/RastgeleButton';
 
 class WriteFourPage extends React.Component {
   render() {
@@ -36,7 +37,10 @@ class WriteFourPage extends React.Component {
             Çok okumak, daha güzel yazmak için bir yoldur. Eğer ilhamınızın
             kapalı olduğunu düşünüyorsanız yazmayı bırakın ve okumaya başlayın.
           </Text>
-          <Text style={styles.rastgele}>Rastgele kitap öner</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele kitap öner</Text>
+          </View>
         </View>
         <View style={styles.bookContainer}>
           <Book
@@ -101,15 +105,22 @@ const styles = StyleSheet.create({
   },
   rastgele: {
     color: '#56E1FF',
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
-    paddingTop: 10,
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop: 7,
+
   },
 
   bookContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    padding:5,
+    padding: 5,
   },
 });

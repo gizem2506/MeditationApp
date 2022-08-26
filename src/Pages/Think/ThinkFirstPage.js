@@ -11,6 +11,7 @@ import Image1 from '../../assets/manzara2.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
+import RastgeleButton from '../../components/Common/RastgeleButton';
 
 class ThinkFirstPage extends React.Component {
   render() {
@@ -33,7 +34,10 @@ class ThinkFirstPage extends React.Component {
           <Text style={styles.writeyazi}>
             Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
           </Text>
-          <Text style={styles.rastgele}>Rastgele konu üret</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele konu üret</Text>
+          </View>
           <View style={styles.genelContainer}>
             <Text style={styles.textgenel}>Konu 1 </Text>
             <Text style={styles.textözel}>
@@ -122,5 +126,12 @@ const styles = StyleSheet.create({
     color: '#56E1FF',
     fontSize: 15,
     fontWeight: 'bold',
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop: 7,
   },
 });

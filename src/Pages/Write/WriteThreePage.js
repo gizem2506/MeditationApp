@@ -12,7 +12,7 @@ import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
 import Background from '../../components/Common/Background';
-
+import RastgeleButton from '../../components/Common/RastgeleButton';
 class WriteThreePage extends React.Component {
   render() {
     return (
@@ -36,7 +36,10 @@ class WriteThreePage extends React.Component {
           <Text style={styles.titletext}>
             İlham gelmesi için rastgele kelimeler üretelim dedik!
           </Text>
-          <Text style={styles.rastgele}>Rastgele konu üret</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele konu üret</Text>
+          </View>
           <View style={styles.loremContainer}>
             <Kelimeler />
           </View>
@@ -59,7 +62,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop:8,
+
+  },
   title: {
     fontSize: 32,
   },
@@ -67,12 +76,7 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  rastgele: {
-    color: '#56E1FF',
-    fontSize: 18,
-    fontWeight: 'bold',
-    paddingTop: 10,
-  },
+  
   titleBir: {
     fontWeight: 'bold',
     color: '#ffffff',
@@ -100,5 +104,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     paddingTop: 20,
+  },
+  rastgele: {
+    color: '#56E1FF',
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginLeft: 7,
+    
   },
 });

@@ -11,6 +11,7 @@ import Image1 from '../../assets/manzara17.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
+import RastgeleButton from '../../components/Common/RastgeleButton';
 
 class ThinkThreePage extends React.Component {
   render() {
@@ -35,7 +36,12 @@ class ThinkThreePage extends React.Component {
             Önyargılarınızdan tamamiyle kurtulmalı ve ufkunuzu olabildiğince
             geniş tutmalısınız{' '}
           </Text>
-          <Text style={styles.rastgele}>Seni düşünmeye yöneltecek sorular</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>
+              Seni düşünmeye yöneltecek sorular
+            </Text>
+          </View>
           <View>
             <Text style={styles.soruText}> Soru 1</Text>
             <Text style={styles.soruText}> Soru 2</Text>
@@ -85,8 +91,15 @@ const styles = StyleSheet.create({
   },
   rastgele: {
     color: '#56E1FF',
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: 'bold',
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop: 7,
   },
   soruText: {
     color: 'white',

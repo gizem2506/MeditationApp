@@ -15,6 +15,7 @@ import Kitap1 from '../../assets/yazmasanati.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
+import RastgeleButton from '../../components/Common/RastgeleButton';
 
 class DrawFourPage extends React.Component {
   render() {
@@ -36,7 +37,10 @@ class DrawFourPage extends React.Component {
             Senin için seçtiğimiz müzikler belki ilham gelmesi için yardımcı
             olur.
           </Text>
-          <Text style={styles.rastgele}>Rastgele müzik öner</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele müzik öner</Text>
+          </View>
         </View>
 
         <ButtonDevam
@@ -80,8 +84,14 @@ const styles = StyleSheet.create({
   },
   rastgele: {
     color: '#56E1FF',
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
-    paddingTop: 10,
-  }
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop: 7,
+  },
 });

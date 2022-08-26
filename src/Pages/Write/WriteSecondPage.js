@@ -11,7 +11,7 @@ import Image1 from '../../assets/manzara3.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
-
+import RastgeleButton from '../../components/Common/RastgeleButton';
 class WriteSecondPage extends React.Component {
   render() {
     return (
@@ -30,7 +30,10 @@ class WriteSecondPage extends React.Component {
           <Text style={styles.textİki}>
             İşte ilhamınızı açacak konu önerileri:
           </Text>
-          <Text style={styles.rastgele}>Rastgele konu üret</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele konu üret</Text>
+          </View>
           <View style={styles.genelContainer}>
             <Text style={styles.textgenel}>Konu 1 </Text>
             <Text style={styles.textözel}>
@@ -77,7 +80,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   imageContainer: {
     height: height,
     width: width,
@@ -86,14 +88,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     fontSize: 20,
-
-    marginTop: 80,
+    marginTop: 70,
   },
   textİki: {
     fontSize: 30,
     fontWeight: 'bold',
     color: 'white',
     marginTop: 10,
+    marginLeft: 0,
+
+    margin: 6,
   },
   textContainer: {
     margin: 10,
@@ -115,7 +119,14 @@ const styles = StyleSheet.create({
   },
   rastgele: {
     color: '#56E1FF',
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop: 7,
   },
 });

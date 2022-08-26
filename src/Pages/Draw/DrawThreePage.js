@@ -13,6 +13,7 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
 import Pattern from '../../components/Common/Pattern';
 import Background from '../../components/Common/Background';
+import RastgeleButton from '../../components/Common/RastgeleButton';
 
 class DrawThreePage extends React.Component {
   render() {
@@ -32,8 +33,10 @@ class DrawThreePage extends React.Component {
           <Text style={styles.titleİki}>
             Aşağıdaki desenler sana ilham verebilir:
           </Text>
-
-          <Text style={styles.rastgele}>Rastgele desen öner</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele desen öner</Text>
+          </View>
           <View style={styles.patternContainer}>
             <Pattern image={require('../../assets/pattern.jpg')} />
             <Pattern image={require('../../assets/pattern2.jpg')} />
@@ -63,9 +66,15 @@ const styles = StyleSheet.create({
   },
   rastgele: {
     color: '#56E1FF',
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
-    paddingTop: 10,
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop: 7,
   },
   titleBir: {
     fontWeight: 'bold',

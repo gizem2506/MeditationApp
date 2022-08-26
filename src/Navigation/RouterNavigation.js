@@ -6,7 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WriteNavigation from './WriteNavigation';
 import DrawNavigation from './DrawNavigation';
 import ThinkNavigation from './ThinkNavigation';
-import ComposeNavigation from './ComposeNavigation';
+import MessageNavigation from './MessageNavigation';
 const Stack = createNativeStackNavigator();
 
 const RouterNavigation = () => (
@@ -19,7 +19,7 @@ const RouterNavigation = () => (
       <Stack.Screen name="Write" component={WriteNavigation} />
       <Stack.Screen name="Draw" component={DrawNavigation} />
       <Stack.Screen name="Think" component={ThinkNavigation} />
-      <Stack.Screen name="Compose" component={ComposeNavigation} />
+      <Stack.Screen name="Message" component={MessageNavigation} />
     </Stack.Navigator>
   </NavigationContainer>
 );

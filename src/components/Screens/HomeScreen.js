@@ -75,9 +75,9 @@ const HomeScreen = ({navigation}) => {
               onPressHandler={() => navigation.navigate('Think')}
             />
             <HomeScreenButton
-              text={'Besteliyorum'}
+              text={'Mesajlaşalım!'}
               image={require('../../assets/icons/Vectorbesteliyorum.png')}
-              onPressHandler={() => navigation.navigate('Compose')}
+              onPressHandler={() => navigation.navigate('Message')}
             />
           </View>
         </View>

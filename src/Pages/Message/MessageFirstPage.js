@@ -18,7 +18,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 const {width, height} = Dimensions.get('window');
 let socket;
 
-const ComposeFirstPage = () => {
+const MessageFirstPage = () => {
   const [userName, setUsername] = useState('');
   const [message, setMessage] = useState('');
   const [messageList, setMessageList] = useState([]);
@@ -26,7 +26,7 @@ const ComposeFirstPage = () => {
 
   React.useEffect(() => {
     if (!socket) {
-      socket = io('ws://192.168.1.92:5002');
+      socket = io('ws://192.168.1.43:5002');
       console.log('new connection');
       socket.on('connect', () => {
         console.log(socket.id);
@@ -86,21 +86,25 @@ const ComposeFirstPage = () => {
                 );
               })}
             </View>
-
-            <Text style={styles.chatText}>Chat </Text>
-            <View style={styles.inputt}>
-              <TextInput
-                style={styles.textInput}
-                onChangeText={setMessage}
-                value={message}
-              />
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                  socket.emit('event', {message: message, userName: userName});
-                }}>
-                <Text style={styles.chatButton}>Gönder</Text>
-              </TouchableOpacity>
+            <View style={styles.sabitContainer}>
+              <Text style={styles.chatText}>Chat </Text>
+              <View style={styles.inputt}>
+                <TextInput
+                  style={styles.textInput}
+                  onChangeText={setMessage}
+                  value={message}
+                />
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => {
+                    socket.emit('event', {
+                      message: message,
+                      userName: userName,
+                    });
+                  }}>
+                  <Text style={styles.chatButton}>Gönder</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </ScrollView>
@@ -109,7 +113,7 @@ const ComposeFirstPage = () => {
   );
 };
 
-export default ComposeFirstPage;
+export default MessageFirstPage;
 
 const styles = StyleSheet.create({
   container: {
@@ -123,10 +127,11 @@ const styles = StyleSheet.create({
     marginTop: 230,
     marginLeft: 10,
   },
+
   time: {
     alignSelf: 'flex-end',
     marginRight: 9,
-    color: '#ffffff'
+    color: '#ffffff',
   },
   imagecontainer: {
     height: height,

@@ -14,6 +14,7 @@ import {CustomImage} from '../../components/Common/CustomImage';
 import Book from '../../components/Common/Book';
 import Challange from '../../components/Common/Challenge';
 import Background from '../../components/Common/Background';
+import RastgeleButton from '../../components/Common/RastgeleButton';
 
 class DrawSecondPage extends React.Component {
   render() {
@@ -34,7 +35,10 @@ class DrawSecondPage extends React.Component {
             Challange'ler sizi motive edecek en güzel yöntemdir.Çizmeyle alakalı
             challange önerileri:
           </Text>
-          <Text style={styles.rastgele}>Rastgele challange öner</Text>
+          <View style={styles.rastgeleIcon}>
+            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+            <Text style={styles.rastgele}>Rastgele challange öner</Text>
+          </View>
         </View>
         <View style={styles.challangeContainer}>
           <Challange image={require('../../assets/drawche.jpg')} />
@@ -77,9 +81,15 @@ const styles = StyleSheet.create({
 
   rastgele: {
     color: '#56E1FF',
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
-    paddingTop: 20,
+    marginLeft: 7,
+  },
+  rastgeleIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop:7
   },
   challangeContainer: {
     flexDirection: 'row',
