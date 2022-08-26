@@ -13,30 +13,36 @@ import Image1 from '../../assets/manzara14.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
-import Draw from '../../components/Common/Draw'
+import CustomCanvas from "../../components/CustomCanvas";
+import CustomImage from "../../components/Common/CustomImage";
+
+
+
 class DrawFivePage extends React.Component {
   render() {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={{flex: 1}}>
+        <View style={{flex: 3}}>
+          <CustomCanvas />
+        </View>
+
         <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
+          <ImageBackground source={Image1} style={{flex: 1}} >
+            <View style={styles.writeContainer}>
+              <Text style={styles.writetext}>5</Text>
+              <Text style={styles.writetitle}>
+                Rastgele bir şeyler karalamaya başla ! Belkide gerisi gelir...
+              </Text>
+            </View>
+            <ButtonDevam
+                image={require('../../assets/icons/right.png')}
+                onPressHandler={() => this.props.navigation.navigate('DrawSixPage')}
+            />
           </ImageBackground>
+
         </View>
-        <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>5</Text>
-          <Text style={styles.writetitle}>
-            Rastgele bir şeyler karalamaya başla ! Belkide gerisi gelir...
-          </Text>
-        </View>
-        <ButtonDevam
-          image={require('../../assets/icons/right.png')}
-          onPressHandler={() => this.props.navigation.navigate('DrawSixPage')}
-        />
+
+
       </SafeAreaView>
     );
   }
@@ -49,8 +55,7 @@ const styles = StyleSheet.create({
   },
 
   imageContainer: {
-    height: height,
-    width: width,
+    flex: 1
   },
   writetitle: {
     fontWeight: 'bold',
@@ -65,7 +70,5 @@ const styles = StyleSheet.create({
   },
   writeContainer: {
     margin: 20,
-    paddingTop: 100,
-    marginTop: 90,
   },
 });
