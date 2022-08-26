@@ -76,7 +76,7 @@ const HomeScreen = ({navigation}) => {
             />
             <HomeScreenButton
               text={'Mesajlaşalım!'}
-              image={require('../../assets/icons/Vectorbesteliyorum.png')}
+              image={require('../../assets/icons/chat.jpg')}
               onPressHandler={() => navigation.navigate('Message')}
             />
           </View>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     fontSize: 40,
-    marginTop: 100,
+    marginTop: 80,
     marginBottom: 8,
     padding: 5,
   },
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   ilhamcontainer: {
     backgroundColor: '#ffffff',
     borderRadius: 20,
-    marginTop: 10,
+    marginTop: 5,
     padding: 10,
     flexDirection: 'column',
     alignItems: 'center',
