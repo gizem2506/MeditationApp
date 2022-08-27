@@ -11,7 +11,6 @@ const Article = props => {
       <CustomImage width={120} height={120} source={image} />
       <View style={styles.articleContainer}>
         <Title style={styles.articleTitle}> {title}</Title>
-        <Paragraph style={styles.articleParagraph}> {content}</Paragraph>
       </View>
     </View>
   );
@@ -23,9 +22,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: 'white',
   },
-  
- 
+
   container: {
     margin: 15,
+  },
+  articleContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

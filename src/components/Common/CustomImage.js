@@ -1,15 +1,13 @@
 import React, {memo} from 'react';
-import {Pressable,Image} from 'react-native';
+import {Pressable, Image} from 'react-native';
 
 export const CustomImage = memo(
-  ({source, width, height, resizeMode, style, isUri, onPress}) => {
-    const sourceValue = isUri
-      ? {uri: source}
-      : source;
+  ({source, width, height, resizeMode, style, isUri, onPress, color}) => {
+    const sourceValue = isUri ? {uri: source} : source;
 
     const renderImage = () => (
       <Image
-        style={[{...style}, {width, height}]}
+        style={[{...style}, {width, height}, {color: 'purple'}]}
         source={sourceValue}
         resizeMode={resizeMode || 'contain'}
       />
@@ -21,4 +19,5 @@ export const CustomImage = memo(
     return renderImage();
   },
 );
-export default CustomImage;4
+export default CustomImage;
+4;
