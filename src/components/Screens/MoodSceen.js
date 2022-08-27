@@ -30,32 +30,32 @@ const MoodScreen = ({navigation}) => {
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara12.jpg')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara17.jpg')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara.png')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara7.jpg')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara2.png')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara20.jpg')}
         />
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
@@ -63,7 +63,7 @@ const MoodScreen = ({navigation}) => {
         />
       </View>
       <BlurView
-        intensity={25}
+        intensity={35}
         tint="light"
         style={styles.blurContainer}></BlurView>
     </View>

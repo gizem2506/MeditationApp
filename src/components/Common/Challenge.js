@@ -10,7 +10,7 @@ const Challange = props => {
       <CustomImage
         style={styles.customImg}
         width={140}
-        height={170}
+        height={160}
         source={image}
       />
     </View>

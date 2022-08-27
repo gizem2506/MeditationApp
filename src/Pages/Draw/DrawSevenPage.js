@@ -42,22 +42,22 @@ class DrawSevenPage extends React.Component {
           <MoodCard
             title={'Deniz Kenarı'}
             content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets//moodbg.jpeg')}
+            image={require('../../assets/manzara.png')}
           />
           <MoodCard
             title={'Deniz Kenarı'}
             content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets//moodbg.jpeg')}
+            image={require('../../assets/manzara2.png')}
           />
           <MoodCard
             title={'Deniz Kenarı'}
             content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets//moodbg.jpeg')}
+            image={require('../../assets/manzara3.png')}
           />
           <MoodCard
             title={'Deniz Kenarı'}
             content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets//moodbg.jpeg')}
+            image={require('../../assets/manzara19.png')}
           />
         </View>
         <ButtonDevam

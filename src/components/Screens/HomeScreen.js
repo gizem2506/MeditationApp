@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   },
 
   dropdown: {
-    borderRadius: 20,
+    borderRadius: 10,
     backgroundColor: '#F3F0FA',
     borderColor: '#F3F0FA',
   },
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 14,
-    borderRadius: 20,
+    borderRadius: 10,
     flex: 1,
     color: 'white',
   },

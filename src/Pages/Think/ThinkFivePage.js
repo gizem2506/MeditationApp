@@ -40,22 +40,22 @@ class ThinkFivePage extends React.Component {
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara13.jpg')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara10.jpg')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara17.jpg')}
         />
         <MoodCard
           title={'Deniz Kenarı'}
           content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets//moodbg.jpeg')}
+          image={require('../../assets/manzara11.jpg')}
         />
        
       </View>

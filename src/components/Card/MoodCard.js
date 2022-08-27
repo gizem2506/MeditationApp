@@ -20,6 +20,7 @@ const MoodCard = props => {
           width={140}
           height={170}
           source={image}
+          resizeMode={'cover'}
           isUri={false}
         />
       ) : (

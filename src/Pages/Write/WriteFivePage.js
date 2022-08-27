@@ -43,22 +43,22 @@ class WriteFivePage extends React.Component {
               <MoodCard
                 title={'Deniz Kenarı'}
                 content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-                image={require('../../assets//moodbg.jpeg')}
+                image={require('../../assets/manzara20.jpg')}
               />
               <MoodCard
                 title={'Deniz Kenarı'}
                 content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-                image={require('../../assets//moodbg.jpeg')}
+                image={require('../../assets/manzara12.jpg')}
               />
               <MoodCard
                 title={'Deniz Kenarı'}
                 content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-                image={require('../../assets//moodbg.jpeg')}
+                image={require('../../assets/manzara5.jpeg')}
               />
               <MoodCard
                 title={'Deniz Kenarı'}
                 content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-                image={require('../../assets//moodbg.jpeg')}
+                image={require('../../assets/manzara18.jpg')}
               />
             </View>
 
