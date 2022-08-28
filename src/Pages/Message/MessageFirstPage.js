@@ -15,34 +15,19 @@ import Image1 from '../../assets/manzara9.jpg';
 import {Dimensions} from 'react-native';
 import Background from '../../components/Common/Background';
 import {ScrollView} from 'react-native-gesture-handler';
+import {_initFetchMessages, _sendNewMessage} from "../../state/actions/chatActions";
+import {useDispatch, useSelector} from "react-redux";
 const {width, height} = Dimensions.get('window');
 let socket;
 
 const MessageFirstPage = () => {
   const [userName, setUsername] = useState('');
   const [message, setMessage] = useState('');
-  const [messageList, setMessageList] = useState([]);
-  const [isUserNameCreated, setUserNameCreated] = useState(false);
 
-  React.useEffect(() => {
-    if (!socket) {
-      socket = io('ws://192.168.1.43:5002');
-      console.log('new connection');
-      socket.on('connect', () => {
-        console.log(socket.id);
-      });
+  const dispatch = useDispatch();
 
-      socket.on('event', data => {
-        console.log('new event', data);
-        messageList.push(data);
-        setMessageList([...messageList]);
-      });
+  const { messageList, currentUser} = useSelector(state => state.chat);
 
-      socket.on('disconnect', () => {
-        console.log('onDisconnect');
-      });
-    }
-  }, []);
 
   return (
     <SafeAreaView>
@@ -55,7 +40,7 @@ const MessageFirstPage = () => {
           <Background />
         </ImageBackground>
       </View>
-      {!isUserNameCreated ? (
+      {!currentUser ? (
         <View>
           <Text style={styles.chatext}>Kullanıcı Adı </Text>
           <View style={styles.inputt}>
@@ -66,7 +51,7 @@ const MessageFirstPage = () => {
             />
             <TouchableOpacity
               style={styles.button}
-              onPress={() => setUserNameCreated(true)}>
+              onPress={() => dispatch(_initFetchMessages(userName))}>
               <Text style={styles.chatButton}>Devam Et</Text>
             </TouchableOpacity>
           </View>
@@ -96,12 +81,8 @@ const MessageFirstPage = () => {
                 />
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() => {
-                    socket.emit('event', {
-                      message: message,
-                      userName: userName,
-                    });
-                  }}>
+                  onPress={() => dispatch(_sendNewMessage({message,userName: currentUser}))}
+                >
                   <Text style={styles.chatButton}>Gönder</Text>
                 </TouchableOpacity>
               </View>
