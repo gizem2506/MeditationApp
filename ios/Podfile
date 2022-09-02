@@ -3,6 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
+`pod 'react-native-video', :path => '../node_modules/react-native-video/react-native-video.podspec'`
 
 production = ENV["PRODUCTION"] == "1"
 
@@ -22,7 +23,6 @@ target 'MobilDKB' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
   target 'MobilDKBTests' do
     inherit! :complete
     # Pods for testing
