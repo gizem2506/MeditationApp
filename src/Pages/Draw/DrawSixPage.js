@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -14,56 +14,107 @@ import Article from '../../components/Common/Article';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
 
-class DrawSixPage extends React.Component {
-  render() {
-    return (
-      <View>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
-          </ImageBackground>
-        </View>
-        <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>6</Text>
-          <Text style={styles.writetitle}>Rastgele objeler öner</Text>
-        </View>
-        <View style={styles.rastgeleIcon}>
-            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
-            <Text style={styles.rastgele}>Rastgele obje öner</Text>
-          </View>
+import axios from 'axios';
 
+const DrawSixPage = ({navigation}) => {
+  const [loading, setLoading] = useState('false');
+
+  const [formData, setFormData] = React.useState([
+    {
+      title: '',
+      category: 'draw2',
+      content: '',
+      img: [],
+    },
+  ]);
+  const item1 = formData[Math.floor(Math.random() * formData.length)];
+  const item2 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item3 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item4 = formData[Math.floor(Math.random() * formData.length)];
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+  const getData = async () => {
+    await axios
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/draw6')
+      .then(response => {
+        setFormData(response.data.data.moods);
+        console.log(response.data.data.moods);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
+
+  return (
+    <View>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="cover"
+          alt="background">
+          <Background />
+        </ImageBackground>
+      </View>
+      <View style={styles.writeContainer}>
+        <Text style={styles.writetext}>6</Text>
+        <Text style={styles.writetitle}>Rastgele objeler öner</Text>
+      </View>
+      <View style={styles.rastgeleIcon}>
+        <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+        <Text style={styles.rastgele}>Rastgele obje öner</Text>
+      </View>
         <View style={styles.articleContainer}>
           <Article
-            title={'Dondurma Külahı'}
-            image={require('../../assets/obje.jpg')}
+            title={item1.title}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
           <Article
-            title={'Masa Lambası'}
-            image={require('../../assets/obje4.jpg')}
+            title={item2.title}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
           <Article
-            title={'Kaktüs'}
-            image={require('../../assets/obje2.jpg')}
+            title={item3.title}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
           <Article
-            title={'Rubik Küp'}
-            image={require('../../assets/obje3.jpg')}
-          />
-          <ButtonDevam
-            image={require('../../assets/icons/right.png')}
-            onPressHandler={() =>
-              this.props.navigation.navigate('DrawSevenPage')
-            }
+            title={item4.title}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
         </View>
-      </View>
-    );
-  }
-}
+    
+      <ButtonDevam
+        image={require('../../assets/icons/right.png')}
+        onPressHandler={() => navigation.navigate('DrawSevenPage')}
+      />
+    </View>
+  );
+};
+
 export default DrawSixPage;
 
 const styles = StyleSheet.create({
@@ -84,6 +135,7 @@ const styles = StyleSheet.create({
 
   writetext: {
     fontWeight: 'bold',
+    fontSize: 20,
     color: 'white',
   },
   writeContainer: {
@@ -95,8 +147,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    margin:30,
-
+    margin: 30,
   },
   rastgele: {
     color: '#56E1FF',
@@ -108,6 +159,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    marginLeft:19
+    marginLeft: 19,
   },
 });

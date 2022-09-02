@@ -13,47 +13,43 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import Kelimeler from '../../components/Common/Kelimeler';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
-class WriteThreePage extends React.Component {
-  render() {
-    return (
-      <View>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
-          </ImageBackground>
-        </View>
-        <View style={styles.genelContainer}>
-          <Text style={styles.titleBir}>3</Text>
-          <Text style={styles.titleİki}>
-            Hata yapmaktan korkma, en saçma fikirler sana ilham olabilir ve
-            harikalar yaratabilirsin. Hemingway’in de dediği gibi, sarhoşken
-            yazın, ayıkken düzeltin.
-          </Text>
-          <Text style={styles.titletext}>
-            İlham gelmesi için rastgele kelimeler üretelim dedik!
-          </Text>
-          <View style={styles.rastgeleIcon}>
-            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
-            <Text style={styles.rastgele}>Rastgele kelime üret</Text>
-          </View>
-          <View style={styles.loremContainer}>
-            <Kelimeler />
-          </View>
-          <ButtonDevam
-            image={require('../../assets/icons/right.png')}
-            onPressHandler={() =>
-              this.props.navigation.navigate('WriteFourPage')
-            }
-          />
-        </View>
+const WriteThreePage = ({navigation}) => {
+  return (
+    <View>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="cover"
+          alt="background">
+          <Background />
+        </ImageBackground>
       </View>
-    );
-  }
-}
+      <View style={styles.genelContainer}>
+        <Text style={styles.titleBir}>3</Text>
+        <Text style={styles.titleİki}>
+          Hata yapmaktan korkma, en saçma fikirler sana ilham olabilir ve
+          harikalar yaratabilirsin. Hemingway’in de dediği gibi, sarhoşken
+          yazın, ayıkken düzeltin.
+        </Text>
+        <Text style={styles.titletext}>
+          İlham gelmesi için rastgele kelimeler üretelim dedik!
+        </Text>
+        <View style={styles.rastgeleIcon}>
+          <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+          <Text style={styles.rastgele}>Rastgele kelime üret</Text>
+        </View>
+        <View style={styles.loremContainer}>
+          <Kelimeler />
+        </View>
+        <ButtonDevam
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => navigation.navigate('WriteFourPage')}
+        />
+      </View>
+    </View>
+  );
+};
 
 export default WriteThreePage;
 
@@ -66,8 +62,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    marginTop:8,
-
+    marginTop: 8,
   },
   title: {
     fontSize: 32,
@@ -76,7 +71,7 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
-  
+
   titleBir: {
     fontWeight: 'bold',
     color: '#ffffff',
@@ -110,6 +105,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     marginLeft: 7,
-    
   },
 });

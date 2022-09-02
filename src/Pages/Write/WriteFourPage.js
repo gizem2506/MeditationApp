@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -17,61 +17,111 @@ import {CustomImage} from '../../components/Common/CustomImage';
 import {ScrollView} from 'react-native-gesture-handler';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
+import axios from 'axios';
 
-class WriteFourPage extends React.Component {
-  render() {
-    return (
-      <SafeAreaView>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
-          </ImageBackground>
+const WriteFourPage = ({navigation}) => {
+  const [formData, setFormData] = React.useState([
+    {
+      title: '',
+      category: 'draw2',
+      content: '',
+      img: [],
+    },
+  ]);
+  const item1 = formData[Math.floor(Math.random() * formData.length)];
+  const item2 = formData[Math.floor(Math.random() * formData.length)];
+  const item3 = formData[Math.floor(Math.random() * formData.length)];
+  const item4 = formData[Math.floor(Math.random() * formData.length)];
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+  const getData = async () => {
+    await axios
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/draw2')
+      .then(response => {
+        setFormData(response.data.data.moods);
+        console.log(response.data.data.moods);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
+
+  return (
+    <SafeAreaView>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="cover"
+          alt="background">
+          <Background />
+        </ImageBackground>
+      </View>
+      <View style={styles.genelContainer}>
+        <Text style={styles.titleBir}>4</Text>
+        <Text style={styles.titleİki}>
+          Çok okumak, daha güzel yazmak için bir yoldur. Eğer ilhamınızın kapalı
+          olduğunu düşünüyorsanız yazmayı bırakın ve okumaya başlayın.
+        </Text>
+        <View style={styles.rastgeleIcon}>
+          <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+          <Text style={styles.rastgele}>Rastgele kitap öner</Text>
         </View>
-        <View style={styles.genelContainer}>
-          <Text style={styles.titleBir}>4</Text>
-          <Text style={styles.titleİki}>
-            Çok okumak, daha güzel yazmak için bir yoldur. Eğer ilhamınızın
-            kapalı olduğunu düşünüyorsanız yazmayı bırakın ve okumaya başlayın.
-          </Text>
-          <View style={styles.rastgeleIcon}>
-            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
-            <Text style={styles.rastgele}>Rastgele kitap öner</Text>
-          </View>
-        </View>
+      </View>
         <View style={styles.bookContainer}>
           <Book
-            title={'Yazma Sanatı'}
-            content={'Stephan King'}
-            image={require('../../assets/yazmasanati.jpg')}
+            title={item1.title}
+            content={item1.content}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
           <Book
-            title={'Yazma Sanatı'}
-            content={'Stephan King'}
-            image={require('../../assets/yazmasanati.jpg')}
+            title={item2.title}
+            content={item2.content}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
           <Book
-            title={'Yazma Sanatı'}
-            content={'Stephan King'}
-            image={require('../../assets/yazmasanati.jpg')}
+            title={item3.title}
+            content={item3.content}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
           <Book
-            title={'Yazma Sanatı'}
-            content={'Stephan King'}
-            image={require('../../assets/yazmasanati.jpg')}
+            title={item4.title}
+            content={item4.content}
+            image={{
+              uri:
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
+                formData[Math.floor(Math.random() * formData.length)].img[0]
+                  ?.id,
+            }}
           />
         </View>
-        <ButtonDevam
-          image={require('../../assets/icons/right.png')}
-          onPressHandler={() => this.props.navigation.navigate('WriteFivePage')}
-        />
-      </SafeAreaView>
-    );
-  }
-}
+    
+
+      <ButtonDevam
+        image={require('../../assets/icons/right.png')}
+        onPressHandler={() => navigation.navigate('WriteFivePage')}
+      />
+    </SafeAreaView>
+  );
+};
+
 export default WriteFourPage;
 
 const styles = StyleSheet.create({
@@ -114,7 +164,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     marginTop: 7,
-
   },
 
   bookContainer: {

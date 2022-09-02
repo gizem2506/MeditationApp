@@ -60,8 +60,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
-  writetext: {
+ writetext: {
     fontWeight: 'bold',
+    fontSize: 20,
     color: 'white',
   },
   writeContainer: {

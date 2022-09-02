@@ -15,8 +15,11 @@ import Image1 from '../../assets/manzara9.jpg';
 import {Dimensions} from 'react-native';
 import Background from '../../components/Common/Background';
 import {ScrollView} from 'react-native-gesture-handler';
-import {_initFetchMessages, _sendNewMessage} from "../../state/actions/chatActions";
-import {useDispatch, useSelector} from "react-redux";
+import {
+  _initFetchMessages,
+  _sendNewMessage,
+} from '../../state/actions/chatActions';
+import {useDispatch, useSelector} from 'react-redux';
 const {width, height} = Dimensions.get('window');
 let socket;
 
@@ -26,8 +29,7 @@ const MessageFirstPage = () => {
 
   const dispatch = useDispatch();
 
-  const { messageList, currentUser} = useSelector(state => state.chat);
-
+  const {messageList, currentUser} = useSelector(state => state.chat);
 
   return (
     <SafeAreaView>
@@ -72,7 +74,7 @@ const MessageFirstPage = () => {
               })}
             </View>
             <View style={styles.sabitContainer}>
-              <Text style={styles.chatText}>Chat </Text>
+              <Text style={styles.chatText}>Chat</Text>
               <View style={styles.inputt}>
                 <TextInput
                   style={styles.textInput}
@@ -81,8 +83,9 @@ const MessageFirstPage = () => {
                 />
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() => dispatch(_sendNewMessage({message,userName: currentUser}))}
-                >
+                  onPress={() =>
+                    dispatch(_sendNewMessage({message, userName: currentUser}))
+                  }>
                   <Text style={styles.chatButton}>Gönder</Text>
                 </TouchableOpacity>
               </View>
@@ -136,6 +139,8 @@ const styles = StyleSheet.create({
   },
   chatt: {
     color: 'white',
+    marginLeft:8,
+    
   },
   button: {
     backgroundColor: 'white',
@@ -153,4 +158,5 @@ const styles = StyleSheet.create({
   ınputt: {
     marginTop: 10,
   },
+  sabitContainer: {},
 });

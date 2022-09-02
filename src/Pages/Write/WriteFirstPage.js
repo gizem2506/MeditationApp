@@ -11,7 +11,6 @@ import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 const {width, height} = Dimensions.get('window');
-
 class WriteFirstPage extends React.Component {
   render() {
     return (

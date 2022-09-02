@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import {
   View,
   Text,
@@ -12,11 +12,39 @@ import {Dimensions} from 'react-native';
 import MoodCard from '../Card/MoodCard';
 import Background from '../../components/Common/Background';
 import ButtonDevam from '../../components/Common/ButtonDevam';
-import {BlurView} from '@react-native-community/blur';
 
 const {width, height} = Dimensions.get('window');
 
 const MoodScreen = ({navigation}) => {
+  {
+    const [formData, setFormData] = React.useState([
+      {
+        title: '',
+        category: '',
+        content: '',
+        img: [],
+        video: [],
+        audio: [],
+      },
+    ]);
+    const img = formData?.img?.[0];
+    console.log(img);
+
+    React.useEffect(() => {
+      getData();
+    }, []);
+    const getData = async () => {
+      await axios
+        .get(`http://10.0.2.2:5001/api/v1/moods/uploadphoto/video`)
+        .then(response => {
+          setFormData(response.data.data.mood);
+          console.log(id);
+        })
+        .catch(error => {
+          console.log(error.message);
+        });
+    };
+  }
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -27,45 +55,20 @@ const MoodScreen = ({navigation}) => {
 
       <Background />
       <View style={styles.moodContainer}>
-        <MoodCard
-          title={'Deniz Kenarı'}
-          content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets/manzara12.jpg')}
-        />
-        <MoodCard
-          title={'Deniz Kenarı'}
-          content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets/manzara17.jpg')}
-        />
-        <MoodCard
-          title={'Deniz Kenarı'}
-          content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets/manzara.png')}
-        />
-        <MoodCard
-          title={'Deniz Kenarı'}
-          content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets/manzara7.jpg')}
-        />
-        <MoodCard
-          title={'Deniz Kenarı'}
-          content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets/manzara2.png')}
-        />
-        <MoodCard
-          title={'Deniz Kenarı'}
-          content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-          image={require('../../assets/manzara20.jpg')}
-        />
+        {formData.map(data => (
+          <MoodCard
+            title={data.title}
+            content={data.content}
+            id={data._id}
+            image={'http://10.0.2.2:5001/api/v1/moods/image/' + data.img[0]?.id}
+          />
+        ))}
+
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
           onPressHandler={() => navigation.navigate('Home')}
         />
       </View>
-      <BlurView
-        intensity={35}
-        tint="light"
-        style={styles.blurContainer}></BlurView>
     </View>
   );
 };

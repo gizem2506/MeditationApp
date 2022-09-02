@@ -18,7 +18,4 @@ const RastgeleButton = props => {
 
 export default RastgeleButton;
 
-const styles = StyleSheet.create({
- 
-  
-});
+const styles = StyleSheet.create({});

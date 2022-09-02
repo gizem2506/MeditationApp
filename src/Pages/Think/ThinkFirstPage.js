@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -13,71 +13,92 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
 
-class ThinkFirstPage extends React.Component {
-  render() {
-    return (
-      <View>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
-          </ImageBackground>
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.textBir}>1 </Text>
-          <Text style={styles.textİki}>
-            Fikir bulmak için önce sorun bulmalıyız!{' '}
-          </Text>
-          <Text style={styles.writeyazi}>
-            Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
-          </Text>
-          <View style={styles.rastgeleIcon}>
-            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
-            <Text style={styles.rastgele}>Rastgele konu üret</Text>
-          </View>
-          <View style={styles.genelContainer}>
-            <Text style={styles.textgenel}>Konu 1 </Text>
-            <Text style={styles.textözel}>
-              Konu 1 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-              şeklinde olacaktır{' '}
-            </Text>
-            <View>
-              <Text style={styles.textgenel}>Konu 2 </Text>
-              <Text style={styles.textözel}>
-                Konu 2 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-                şeklinde olacaktır{' '}
-              </Text>
-            </View>
-            <View>
-              <Text style={styles.textgenel}>Konu 3 </Text>
-              <Text style={styles.textözel}>
-                Konu 3 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-                şeklinde olacaktır{' '}
-              </Text>
-            </View>
-            <View>
-              <Text style={styles.textgenel}>Konu 4 </Text>
-              <Text style={styles.textözel}>
-                Konu 4 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-                şeklinde olacaktır{' '}
-              </Text>
-            </View>
-          </View>
+import axios from 'axios';
 
-          <ButtonDevam
-            image={require('../../assets/icons/right.png')}
-            onPressHandler={() =>
-              this.props.navigation.navigate('ThinkSecondPage')
-            }
-          />
-        </View>
+const ThinkFirstPage = ({navigation}) => {
+  const [loading, setLoading] = useState('false');
+
+  const [formData, setFormData] = React.useState([
+    {
+      title: '',
+      category: 'write2',
+      content: '',
+      img: [],
+    },
+  ]);
+  const item1 = formData[Math.floor(Math.random() * formData.length)];
+  const item2 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item3 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item4 = formData[Math.floor(Math.random() * formData.length)];
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+  const getData = async () => {
+    await axios
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/think1')
+      .then(response => {
+        setFormData(response.data.data.moods);
+        //console.log(response.data.data.moods);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
+
+  return (
+    <View>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="cover"
+          alt="background">
+          <Background />
+        </ImageBackground>
       </View>
-    );
-  }
-}
+      <View style={styles.textContainer}>
+        <Text style={styles.textBir}>1 </Text>
+        <Text style={styles.textİki}>
+          Fikir bulmak için önce sorun bulmalıyız!{' '}
+        </Text>
+        <Text style={styles.writeyazi}>
+          Unutma, gününe devam ederken aklına gelen her şeyi not almalısın
+        </Text>
+        <View style={styles.rastgeleIcon}>
+          <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+          <Text style={styles.rastgele}>Rastgele konu üret</Text>
+        </View>
+          <View style={styles.genelContainer}>
+            <View>
+              <Text style={styles.textgenel}>{item1.title}</Text>
+              <Text style={styles.textözel}>{item1.content}</Text>
+              <View>
+                <Text style={styles.textgenel}>{item2.title} </Text>
+                <Text style={styles.textözel}>{item2.content}</Text>
+              </View>
+              <View>
+                <Text style={styles.textgenel}>{item3.title}</Text>
+                <Text style={styles.textözel}>{item3.content}</Text>
+              </View>
+              <View>
+                <Text style={styles.textgenel}>{item4.title} </Text>
+                <Text style={styles.textözel}>{item4.content}</Text>
+              </View>
+            </View>
+          </View>
+      
+        <ButtonDevam
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => navigation.navigate('ThinkSecondPage')}
+        />
+      </View>
+    </View>
+  );
+};
+
 export default ThinkFirstPage;
 
 const styles = StyleSheet.create({

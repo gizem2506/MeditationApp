@@ -12,6 +12,7 @@ const Challange = props => {
         width={140}
         height={160}
         source={image}
+        
       />
     </View>
   );

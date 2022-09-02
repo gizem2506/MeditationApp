@@ -12,6 +12,7 @@ import Image1 from '../../assets/manzara8.jpg';
 import {Dimensions} from 'react-native';
 import Background from '../../components/Common/Background';
 import MoodCard from '../../components/Card/MoodCard';
+import axios from 'axios';
 
 import ButtonDevam from '../../components/Common/ButtonDevam';
 
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
   },
   writetext: {
     fontWeight: 'bold',
+    fontSize: 15,
     color: 'white',
   },
   writeContainer: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -14,44 +14,88 @@ import Kelimeler from '../../components/Common/Kelimeler';
 import Pattern from '../../components/Common/Pattern';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
+import axios from 'axios';
 
-class DrawThreePage extends React.Component {
-  render() {
-    return (
-      <View>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
-          </ImageBackground>
-        </View>
-        <View style={styles.genelContainer}>
-          <Text style={styles.titleBir}>3</Text>
-          <Text style={styles.titleİki}>
-            Aşağıdaki desenler sana ilham verebilir:
-          </Text>
-          <View style={styles.rastgeleIcon}>
-            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
-            <Text style={styles.rastgele}>Rastgele desen öner</Text>
-          </View>
-          <View style={styles.patternContainer}>
-            <Pattern image={require('../../assets/pattern.jpg')} />
-            <Pattern image={require('../../assets/pattern2.jpg')} />
-          </View>
-          <ButtonDevam
-            image={require('../../assets/icons/right.png')}
-            onPressHandler={() =>
-              this.props.navigation.navigate('DrawFourPage')
-            }
-          />
-        </View>
+const DrawThreePage = ({navigation}) => {
+  const [loading, setLoading] = useState('false');
+
+  const [formData, setFormData] = React.useState([
+    {
+      title: '',
+      category: 'draw2',
+      content: '',
+      img: [],
+    },
+  ]);
+  const item1 = formData[Math.floor(Math.random() * formData.length)];
+  const item2 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item3 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item4 = formData[Math.floor(Math.random() * formData.length)];
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+  const getData = async () => {
+    await axios
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/draw3')
+      .then(response => {
+        setFormData(response.data.data.moods);
+        console.log(response.data.data.moods);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
+  return (
+    <View>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="cover"
+          alt="background">
+          <Background />
+        </ImageBackground>
       </View>
-    );
-  }
-}
+      <View style={styles.genelContainer}>
+        <Text style={styles.titleBir}>3</Text>
+        <Text style={styles.titleİki}>
+          Aşağıdaki desenler sana ilham verebilir:
+        </Text>
+        <View style={styles.rastgeleIcon}>
+          <RastgeleButton image={require('../../assets/icons/refresh.png')} />
+          <Text style={styles.rastgele}>Rastgele desen öner</Text>
+        </View>
+          <View style={styles.patternContainer}>
+            <Pattern
+              image={{
+                uri:
+                  'http://10.0.2.2:5001/api/v1/moods/image/' +
+                  formData[Math.floor(Math.random() * formData.length)].img[0]
+                    ?.id,
+              }}
+            />
+
+            <Pattern
+              image={{
+                uri:
+                  'http://10.0.2.2:5001/api/v1/moods/image/' +
+                  formData[Math.floor(Math.random() * formData.length)].img[0]
+                    ?.id,
+              }}
+            />
+          </View>
+      
+        <ButtonDevam
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => navigation.navigate('DrawFourPage')}
+        />
+      </View>
+    </View>
+  );
+};
 
 export default DrawThreePage;
 
@@ -74,7 +118,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    marginTop:18
+    marginTop: 18,
   },
   titleBir: {
     fontWeight: 'bold',

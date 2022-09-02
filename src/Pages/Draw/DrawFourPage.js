@@ -7,16 +7,16 @@ import {
   Image,
   SafeAreaView,
 } from 'react-native';
-import {WebView} from 'react-native-webview';
 
 const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara4.jpeg';
-import Kitap1 from '../../assets/yazmasanati.jpg';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
-
+// import {ResizeMode} from 'expo-av';
+// import VideoPlayer from 'expo-video-player';
+import Video from 'react-native-video';
 class DrawFourPage extends React.Component {
   render() {
     return (
@@ -25,12 +25,11 @@ class DrawFourPage extends React.Component {
           <ImageBackground
             style={styles.imageContainer}
             source={Image1}
-            resizeMode="cover"
+            resizeMode="contain"
             alt="background">
             <Background />
           </ImageBackground>
         </View>
-
         <View style={styles.genelContainer}>
           <Text style={styles.titleBir}>4</Text>
           <Text style={styles.titleİki}>
@@ -42,7 +41,26 @@ class DrawFourPage extends React.Component {
             <Text style={styles.rastgele}>Rastgele müzik öner</Text>
           </View>
         </View>
-
+        <Video
+          source={{
+            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+          }}
+          style={{width: 300, height: 300}}
+          controls={true}
+          resizeMode="contain"
+          ref={ref => {
+            this.player = ref;
+          }}
+        />
+        {/* <VideoPlayer
+        videoProps={{
+          shouldPlay: true,
+          resizeMode: ResizeMode.CONTAIN,
+          source: {
+            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+          },
+        }} 
+      />*/}
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
           onPressHandler={() => this.props.navigation.navigate('DrawFivePage')}
@@ -51,6 +69,7 @@ class DrawFourPage extends React.Component {
     );
   }
 }
+
 export default DrawFourPage;
 
 const styles = StyleSheet.create({
@@ -92,6 +111,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    marginTop:18
+    marginTop: 18,
   },
 });

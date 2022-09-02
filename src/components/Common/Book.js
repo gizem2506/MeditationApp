@@ -5,10 +5,9 @@ import {CustomImage} from '../Common/CustomImage';
 
 const Book = props => {
   const {title, content, image} = props;
-
   return (
     <View style={styles.kitapContainer}>
-      <CustomImage width={130} height={140} source={image} resizeMode="cover" />
+      <CustomImage width={120} height={150} source={image} resizeMode="cover" />
       <View style={styles.bookkContainer}>
         <Title style={styles.bookTitle}> {title}</Title>
         <Paragraph style={styles.bookParagraph}> {content}</Paragraph>
@@ -29,11 +28,10 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   kitapContainer: {
-    margin: 10,
+    margin: 8,
   },
   bookkContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 5,
   },
 });

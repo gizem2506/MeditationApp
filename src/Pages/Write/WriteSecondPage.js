@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -7,73 +7,85 @@ import {
   SafeAreaView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import Image1 from '../../assets/manzara3.png';
+import Image1 from '../../assets/manzara.png';
 import {Dimensions} from 'react-native';
 import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
-class WriteSecondPage extends React.Component {
-  render() {
-    return (
-      <View>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
-          </ImageBackground>
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.textBir}>2 </Text>
-          <Text style={styles.textİki}>
-            İşte ilhamınızı açacak konu önerileri:
-          </Text>
-          <View style={styles.rastgeleIcon}>
-            <RastgeleButton image={require('../../assets/icons/refresh.png')} />
-            <Text style={styles.rastgele}>Rastgele konu üret</Text>
-          </View>
-          <View style={styles.genelContainer}>
-            <Text style={styles.textgenel}>Konu 1 </Text>
-            <Text style={styles.textözel}>
-              Konu 1 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-              şeklinde olacaktır{' '}
-            </Text>
-            <View>
-              <Text style={styles.textgenel}>Konu 2 </Text>
-              <Text style={styles.textözel}>
-                Konu 2 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-                şeklinde olacaktır{' '}
-              </Text>
-            </View>
-            <View>
-              <Text style={styles.textgenel}>Konu 3 </Text>
-              <Text style={styles.textözel}>
-                Konu 3 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-                şeklinde olacaktır{' '}
-              </Text>
-            </View>
-            <View>
-              <Text style={styles.textgenel}>Konu 4 </Text>
-              <Text style={styles.textözel}>
-                Konu 4 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır
-                şeklinde olacaktır{' '}
-              </Text>
-            </View>
-          </View>
+import axios from 'axios';
 
-          <ButtonDevam
-            image={require('../../assets/icons/right.png')}
-            onPressHandler={() =>
-              this.props.navigation.navigate('WriteThreePage')
-            }
-          />
-        </View>
+const WriteSecondPage = ({navigation}) => {
+  const [formData, setFormData] = React.useState([
+    {
+      title: '',
+      category: 'write2',
+      content: '',
+      img: [],
+    },
+  ]);
+  const item1 = formData[Math.floor(Math.random() * formData.length)];
+  const item2 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item3 = formData[Math.floor(Math.random() * formData.length)];
+
+  const item4 = formData[Math.floor(Math.random() * formData.length)];
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+  const getData = async () => {
+    await axios
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto')
+      .then(response => {
+        setFormData(response.data.data.moods);
+        //console.log(response.data.data.moods);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
+
+  return (
+    <View>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="cover"
+          alt="background">
+          <Background />
+        </ImageBackground>
       </View>
-    );
-  }
-}
+
+      <View style={styles.textContainer}>
+        <Text style={styles.textBir}>2 </Text>
+        <Text style={styles.textİki}>
+          Yazmaya başlamadan önce zihninizi boşaltmalısınız.
+        </Text>
+        <Text style={styles.textİki}>Yazılımını güncellemek için ; </Text>
+        <Text style={styles.textDetail}>Kitap oku </Text>
+        <Text style={styles.textDetail}>Podcast dinle </Text>
+        <Text style={styles.textDetail}>Deneyime açık ol</Text>
+
+        <Text style={styles.textİki}>Diskini temiz tutmak için ; </Text>
+        <Text style={styles.textDetail}>Meditasyon yap </Text>
+        <Text style={styles.textDetail}>Günlük tut </Text>
+        <Text style={styles.textDetail}>kendini dinle</Text>
+
+        <Text style={styles.textİki}>Pilini korumak için ; </Text>
+        <Text style={styles.textDetail}>8 saat uyu </Text>
+        <Text style={styles.textDetail}>Doğaya sarıl</Text>
+        <Text style={styles.textDetail}>Ditijal detoks yap</Text>
+      </View>
+
+      <ButtonDevam
+        image={require('../../assets/icons/right.png')}
+        onPressHandler={() => navigation.navigate('WriteThreePage')}
+      />
+    </View>
+  );
+};
+
 export default WriteSecondPage;
 
 const styles = StyleSheet.create({
@@ -88,16 +100,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     fontSize: 20,
-    marginTop: 70,
+    marginTop: 20,
   },
   textİki: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
     marginTop: 10,
     marginLeft: 0,
 
     margin: 6,
+  },
+  textDetail: {
+    marginTop: 10,
+    marginLeft: 0,
   },
   textContainer: {
     margin: 10,

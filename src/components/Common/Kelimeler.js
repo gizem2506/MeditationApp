@@ -12,16 +12,11 @@ const kelimeler = [
   'Lorem 7',
   'Lorem 8',
   'Lorem 9',
-  'Lorem 10',
-  'Lorem 11',
-  'Lorem 12',
-  'Lorem 13',
-  'Lorem 14',
-  'Lorem 15',
-  'Lorem 16',
+  
 ];
 
 export default function Kelimeler(props) {
+  
   const list =
     props.kelimeler && props.kelimeler.length > 0 ? props.kelimeler : kelimeler;
   return (
@@ -54,7 +49,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingRight: 10,
     margin: 9,
-    width: Dimensions.get('window').width /7,
+    width: Dimensions.get('window').width /5,
   },
   textStyle: {
     color: 'white',

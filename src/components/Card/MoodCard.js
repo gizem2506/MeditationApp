@@ -6,7 +6,6 @@ import {CustomImage} from '../Common/CustomImage';
 const MoodCard = props => {
   const [isClicked, setisClicked] = useState(false);
 
-  const {onMoodDetailPressed} = props;
 
   const {title, content, image} = props;
 
@@ -28,7 +27,7 @@ const MoodCard = props => {
           <Title style={styles.moodTitle}> {title}</Title>
           <Text style={styles.moodsText}> {content}</Text>
           <TouchableOpacity
-            onPress={onMoodDetailPressed}
+            onPress={null}
             style={styles.touchableButton}>
             <Title style={styles.moodText}>MOOD</Title>
           </TouchableOpacity>

@@ -22,7 +22,7 @@ function* listenMessageEvents(socket) {
 
     yield put({
       type: CHAT_ACTION_TYPES.SET_MESSAGE_LIST,
-      payload: [...messageList, {...newMessage.payload, time: newMessage.time}],
+      payload: [...messageList, newMessage],
     });
   }
 }
@@ -42,8 +42,9 @@ export function* subscribe(socket) {
 export function* addMessage(socket) {
   while (true) {
     const messageObj = yield take(CHAT_ACTION_TYPES.SEND_NEW_MESSAGE);
-    console.log('saga messageObj', messageObj);
-    socket.emit('event', messageObj);
+    console.log('saga payload', messageObj);
+    const messageToBeEmitted = {...messageObj.payload,time: messageObj.time}
+    socket.emit('event', messageToBeEmitted);
   }
 }
 

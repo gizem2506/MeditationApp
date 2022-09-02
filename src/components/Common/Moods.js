@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Title, Paragraph} from 'react-native-paper';
-import {CustomImage} from '../Common/CustomImage';
+import {CustomImage} from './CustomImage';
 
 const Moods = props => {
   const {title, content, image} = props;

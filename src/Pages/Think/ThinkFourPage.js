@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   },
 
   thinktext: {
-    fontSize: 15,
+    fontWeight: 'bold',
+    fontSize: 20,
     color: 'white',
   },
   thinkContainer: {
