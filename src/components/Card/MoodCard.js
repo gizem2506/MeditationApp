@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {Title} from 'react-native-paper';
+import EnvironmentScreen from '../../Pages/EnvironmentScreen';
 import {CustomImage} from '../Common/CustomImage';
 
 const MoodCard = props => {
   const [isClicked, setisClicked] = useState(false);
 
-
-  const {title, content, image} = props;
+  const {title, content, image, onPressHandler} = props;
 
   return (
     <TouchableOpacity
@@ -27,8 +27,8 @@ const MoodCard = props => {
           <Title style={styles.moodTitle}> {title}</Title>
           <Text style={styles.moodsText}> {content}</Text>
           <TouchableOpacity
-            onPress={null}
-            style={styles.touchableButton}>
+            style={styles.moodButton}
+            onPressHandler={() => navigation.navigate('EnvironmentScreen')}>
             <Title style={styles.moodText}>MOOD</Title>
           </TouchableOpacity>
         </View>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 
-  touchableButton: {
+  moodButton: {
     backgroundColor: '#6320EE',
     borderRadius: 20,
     margin: 15,

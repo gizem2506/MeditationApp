@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -10,64 +10,58 @@ import {
 import Image1 from '../../assets/moodbg.jpeg';
 import {Dimensions} from 'react-native';
 import MoodCard from '../Card/MoodCard';
-import Background from '../../components/Common/Background';
-import ButtonDevam from '../../components/Common/ButtonDevam';
-
+import Background from '../Common/Background';
+import ButtonDevam from '../Common/ButtonDevam';
+import axios from 'axios';
+const baseUrl = 'http://localhost:5001/api/v1/moods/uploadphoto';
 const {width, height} = Dimensions.get('window');
 
-const MoodScreen = ({navigation}) => {
-  {
-    const [formData, setFormData] = React.useState([
-      {
-        title: '',
-        category: '',
-        content: '',
-        img: [],
-        video: [],
-        audio: [],
-      },
-    ]);
-    const img = formData?.img?.[0];
-    console.log(img);
+const publicURL = 'http://10.0.0.1';
 
-    React.useEffect(() => {
-      getData();
-    }, []);
-    const getData = async () => {
-      await axios
-        .get(`http://10.0.2.2:5001/api/v1/moods/uploadphoto/video`)
-        .then(response => {
-          setFormData(response.data.data.mood);
-          console.log(id);
-        })
-        .catch(error => {
-          console.log(error.message);
-        });
-    };
-  }
+const MoodScreen = ({navigation}) => {
+  const [formData, setFormData] = React.useState([
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+  ]);
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    await axios
+      .get(`http://192.168.1.34:5001/api/v1/moods/uploadphoto/video`)
+      .then(response => {
+        setFormData(response.data.data.moods);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <View style={styles.container}>
-      <ImageBackground
-        style={styles.imagecontainer}
-        source={Image1}
-        resizeMode="cover"
-        alt="background"></ImageBackground>
-
       <Background />
       <View style={styles.moodContainer}>
-        {formData.map(data => (
-          <MoodCard
-            title={data.title}
-            content={data.content}
-            id={data._id}
-            image={'http://10.0.2.2:5001/api/v1/moods/image/' + data.img[0]?.id}
-          />
-        ))}
-
-        <ButtonDevam
-          image={require('../../assets/icons/right.png')}
-          onPressHandler={() => navigation.navigate('Home')}
-        />
+        <ScrollView>
+          {formData.map(data => (
+            <MoodCard
+              title={data.title}
+              content={data.content}
+              id={data._id}
+              image={
+                'http://192.168.43.124:5001/api/v1/moods/image/' +
+                data.img[0]?.id
+              }
+            />
+          ))}
+        </ScrollView>
       </View>
     </View>
   );

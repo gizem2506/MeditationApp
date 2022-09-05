@@ -1,20 +1,11 @@
-/*import React from 'react';
-import {useNavigate} from 'react-router-dom';
-import {ResizeMode} from 'expo-av';
-import VideoPlayer from 'expo-video-player';
-function Environment(props) {
+// import React from 'react';
+// import Video from 'react-native-video';
+// function Environment(props) {
+//   return (
+//     <View>
+//       <Video source={props?.video} />
+//     </View>
+//   );
+// }
 
-  return (
-    <View>
-       <VideoPlayer
-        videoProps={{
-          shouldPlay: true,
-          resizeMode: ResizeMode.CONTAIN,
-          source={props?.video} 
-        }}
-      />
-    </View>
-  );
-}
-
-export default Environment; */
+// export default Environment;

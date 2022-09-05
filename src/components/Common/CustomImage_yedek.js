@@ -15,7 +15,7 @@ export const CustomImage = memo(
     if (onPress) {
       return <Pressable onPress={onPress}>{renderImage()}</Pressable>;
     }
-    return renderImage();
+    // return renderImage();
   },
 );
 export default CustomImage;
