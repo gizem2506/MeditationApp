@@ -13,7 +13,7 @@ import MoodCard from '../Card/MoodCard';
 import Background from '../Common/Background';
 import ButtonDevam from '../Common/ButtonDevam';
 import axios from 'axios';
-const baseUrl = 'http://localhost:5001/api/v1/moods/uploadphoto';
+const baseUrl = 'http://10.0.2.2:5001/api/v1/moods/uploadphoto';
 const {width, height} = Dimensions.get('window');
 
 const publicURL = 'http://10.0.0.1';
@@ -36,7 +36,7 @@ const MoodScreen = ({navigation}) => {
 
   const getData = async () => {
     await axios
-      .get(`http://192.168.1.34:5001/api/v1/moods/uploadphoto/video`)
+      .get(`http://10.0.2.2:5001/api/v1/moods/uploadphoto/video`)
       .then(response => {
         setFormData(response.data.data.moods);
       })
@@ -56,7 +56,7 @@ const MoodScreen = ({navigation}) => {
               content={data.content}
               id={data._id}
               image={
-                'http://192.168.43.124:5001/api/v1/moods/image/' +
+                'http://10.0.2.2:5001/api/v1/moods/image/' +
                 data.img[0]?.id
               }
             />
