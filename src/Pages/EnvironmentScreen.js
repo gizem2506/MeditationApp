@@ -1,50 +1,43 @@
-// import React, {useEffect, useState} from 'react';
-// import Environment from '../components/Common/Environment';
-// import Video from 'react-native-video';
-// import axios from 'axios';
-// import {useLocation} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import Environment from '../components/Common/Environment';
+import Video from 'react-native-video';
+import axios from 'axios';
+import {useRoute} from '@react-navigation/native';
+import {View, Text} from 'react-native';
+function EnvironmentScreen() {
+  const route = useRoute();
+  const {id} = route.params;
 
-// function EnvironmentScreen() {
-//   const {state} = useLocation();
-//   const {id} = state;
-//   const [formData, setFormData] = React.useState([
-//     {
-//       title: '',
-//       category: '',
-//       content: '',
-//       img: [],
-//       video: [],
-//       audio: [],
-//     },
-//   ]);
-//   const img = formData?.img?.[0];
-//   console.log(img);
+  const [formData, setFormData] = React.useState(null);
+  const getData = async () => {
+    await axios
+      .get(`http://10.0.2.2:5001/api/v1/moods/mood/${id}`)
+      .then(response => {
+        setFormData(response.data.data.mood);
+        //console.log(id);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
 
-//   React.useEffect(() => {
-//     getData();
-//   }, []);
-//   const getData = async () => {
-//     await axios
-//       .get(`http://10.0.2.2:5001/api/v1/moods/mood/${id}`)
-//       .then(response => {
-//         setFormData(response.data.data.mood);
-//         console.log(id);
-//       })
-//       .catch(error => {
-//         console.log(error.message);
-//       });
-//   };
-//   return (
-//     <View>
-//       <Environment
-//         video={{
-//           uri:
-//             'http://10.0.2.2:5001/api/v1/moods/image/' +
-//             formData?.video?.[0]?.id,
-//         }}
-//       />
-//     </View>
-//   );
-// }
+  React.useEffect(() => {
+    getData();
+  }, []);
 
-// export default EnvironmentScreen;
+  return (
+    <View>
+      {formData != null && (
+        <Environment
+          video={{
+            uri:
+              'http://10.0.2.2:5001/api/v1/moods/image/' +
+              formData?.video?.[0]?.id,
+          }}
+        />
+      )}
+    </View>
+  );
+}
+
+export default EnvironmentScreen;

@@ -135,13 +135,12 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   textgenel: {
-    fontSize: 20,
+    fontSize: 15,
     color: 'white',
-    margin: 5,
+    paddingTop: 15,
   },
   textözel: {
     color: '#E0D1FF',
-    margin: 5,
   },
   rastgele: {
     color: '#56E1FF',

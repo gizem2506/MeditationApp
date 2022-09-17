@@ -7,7 +7,7 @@ import WriteNavigation from './WriteNavigation';
 import DrawNavigation from './DrawNavigation';
 import ThinkNavigation from './ThinkNavigation';
 import MessageNavigation from './MessageNavigation';
-// import EnvironmentScreen from '../Pages/EnvironmentScreen';
+import EnvironmentScreen from '../Pages/EnvironmentScreen';
 const Stack = createNativeStackNavigator();
 
 const RouterNavigation = () => (
@@ -21,7 +21,7 @@ const RouterNavigation = () => (
       <Stack.Screen name="Draw" component={DrawNavigation} />
       <Stack.Screen name="Think" component={ThinkNavigation} />
       <Stack.Screen name="Message" component={MessageNavigation} />
-      {/* <Stack.Screen name="Environment" component={EnvironmentScreen} /> */}
+      <Stack.Screen name="Environment" component={EnvironmentScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );

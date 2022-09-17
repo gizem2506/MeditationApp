@@ -28,10 +28,6 @@ const ThinkThreePage = ({navigation}) => {
   const item1 = formData[Math.floor(Math.random() * formData.length)];
   const item2 = formData[Math.floor(Math.random() * formData.length)];
 
-  const item3 = formData[Math.floor(Math.random() * formData.length)];
-
-  const item4 = formData[Math.floor(Math.random() * formData.length)];
-
   React.useEffect(() => {
     getData();
   }, []);
@@ -72,13 +68,11 @@ const ThinkThreePage = ({navigation}) => {
           <RastgeleButton image={require('../../assets/icons/refresh.png')} />
           <Text style={styles.rastgele}>Seni düşünmeye yöneltecek sorular</Text>
         </View>
-          <View style={styles.soruContainer}>
-            <Text style={styles.soruText}>{item1.title}</Text>
-            <Text style={styles.soruText}>{item2.title}</Text>
-            <Text style={styles.soruText}>{item3.title}</Text>
-            <Text style={styles.soruText}>{item4.title}</Text>
-          </View>
-    
+        <View style={styles.soruContainer}>
+          <Text style={styles.soruText}>{item1.title}</Text>
+          <Text style={styles.soruText}>{item2.title}</Text>
+        </View>
+
         <ButtonDevam
           image={require('../../assets/icons/right.png')}
           onPressHandler={() => navigation.navigate('ThinkFourPage')}
@@ -111,13 +105,14 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   thinkContainer: {
-    margin: 25,
-    paddingTop: 50,
+    margin: 22,
+    paddingTop: 85,
   },
   thinkyazi: {
     marginLeft: 3,
     color: 'white',
     margin: 10,
+    fontSize: 15,
   },
   rastgele: {
     color: '#56E1FF',
@@ -133,7 +128,11 @@ const styles = StyleSheet.create({
   },
   soruText: {
     color: 'white',
-    fontSize: 14,
-    paddingTop: 40,
+    fontSize: 15,
+    paddingTop: 30,
+  },
+  soruContainer: {
+    bottom: 0,
+    margin: 0,
   },
 });

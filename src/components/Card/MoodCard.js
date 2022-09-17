@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {Title} from 'react-native-paper';
@@ -7,8 +8,8 @@ import {CustomImage} from '../Common/CustomImage';
 const MoodCard = props => {
   const [isClicked, setisClicked] = useState(false);
 
-  const {title, content, image, onPressHandler} = props;
-
+  const {title, content, image, onPressHandler, id} = props;
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={styles.button}
@@ -28,7 +29,11 @@ const MoodCard = props => {
           <Text style={styles.moodsText}> {content}</Text>
           <TouchableOpacity
             style={styles.moodButton}
-            onPressHandler={() => navigation.navigate('EnvironmentScreen')}>
+            onPress={() =>
+              navigation.navigate('Environment', {
+                id: id,
+              })
+            }>
             <Title style={styles.moodText}>MOOD</Title>
           </TouchableOpacity>
         </View>

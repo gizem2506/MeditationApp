@@ -23,7 +23,7 @@ const WriteFourPage = ({navigation}) => {
   const [formData, setFormData] = React.useState([
     {
       title: '',
-      category: 'draw2',
+      category: '',
       content: '',
       img: [],
     },
@@ -38,10 +38,9 @@ const WriteFourPage = ({navigation}) => {
   }, []);
   const getData = async () => {
     await axios
-      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/draw2')
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/write4')
       .then(response => {
         setFormData(response.data.data.moods);
-        console.log(response.data.data.moods);
       })
       .catch(error => {
         console.log(error.message);
@@ -70,49 +69,36 @@ const WriteFourPage = ({navigation}) => {
           <Text style={styles.rastgele}>Rastgele kitap öner</Text>
         </View>
       </View>
-        <View style={styles.bookContainer}>
-          <Book
-            title={item1.title}
-            content={item1.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-          <Book
-            title={item2.title}
-            content={item2.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-          <Book
-            title={item3.title}
-            content={item3.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-          <Book
-            title={item4.title}
-            content={item4.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-        </View>
-    
+      <View style={styles.bookContainer}>
+        <Book
+          title={item1.title}
+          content={item1.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item1.img[0]?.id,
+          }}
+        />
+        <Book
+          title={item2.title}
+          content={item2.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item2.img[0]?.id,
+          }}
+        />
+        <Book
+          title={item3.title}
+          content={item3.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item3.img[0]?.id,
+          }}
+        />
+        <Book
+          title={item4.title}
+          content={item4.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item4.img[0]?.id,
+          }}
+        />
+      </View>
 
       <ButtonDevam
         image={require('../../assets/icons/right.png')}

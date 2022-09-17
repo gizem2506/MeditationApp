@@ -16,59 +16,98 @@ import axios from 'axios';
 
 import ButtonDevam from '../../components/Common/ButtonDevam';
 
-class DrawSevenPage extends React.Component {
-  render() {
-    return (
-      <SafeAreaView>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.imageContainer}
-            source={Image1}
-            resizeMode="cover"
-            alt="background">
-            <Background />
-          </ImageBackground>
-        </View>
-        <View style={styles.writeContainer}>
-          <Text style={styles.writetext}>7</Text>
-          <Text style={styles.writetitle}>
-            Özgür olun, daha da özgür... En özgür hissedeceğiniz hale bürünmeye
-            çalışın
-          </Text>
-        </View>
-        <Text style={styles.title2}>
-          İşte sana ilham verebilecek ortamlarımız!
+const DrawSevenPage = ({navigation}) => {
+  const [formData, setFormData] = React.useState([
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+  ]);
+  var item1 = formData[Math.floor(Math.random() * formData.length)];
+  var item2 = formData[Math.floor(Math.random() * formData.length)];
+  var item3 = formData[Math.floor(Math.random() * formData.length)];
+  var item4 = formData[Math.floor(Math.random() * formData.length)];
+  React.useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    await axios
+      .get(`http://10.0.2.2:5001/api/v1/moods/uploadphoto/video`)
+      .then(response => {
+        setFormData(response.data.data.moods);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  };
+  return (
+    <SafeAreaView>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.imageContainer}
+          source={Image1}
+          resizeMode="cover"
+          alt="background">
+          <Background />
+        </ImageBackground>
+      </View>
+      <View style={styles.writeContainer}>
+        <Text style={styles.writetext}>7</Text>
+        <Text style={styles.writetitle}>
+          Özgür olun, daha da özgür... En özgür hissedeceğiniz hale bürünmeye
+          çalışın
         </Text>
-        <View style={styles.moodContainer}>
-          <MoodCard
-            title={'Deniz Kenarı'}
-            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets/manzara.png')}
-          />
-          <MoodCard
-            title={'Deniz Kenarı'}
-            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets/manzara2.png')}
-          />
-          <MoodCard
-            title={'Deniz Kenarı'}
-            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets/manzara3.png')}
-          />
-          <MoodCard
-            title={'Deniz Kenarı'}
-            content={'Kendinizi deniz kenarında hissetmeye hazır mısınız?'}
-            image={require('../../assets/manzara19.png')}
-          />
-        </View>
-        <ButtonDevam
-          image={require('../../assets/icons/home.png')}
-          onPressHandler={() => this.props.navigation.navigate('Home')}
+      </View>
+      <Text style={styles.title2}>
+        İşte sana ilham verebilecek ortamlarımız!
+      </Text>
+      <View style={styles.moodContainer}>
+        <MoodCard
+          id={item1._id}
+          title={item1.title}
+          content={item1.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item1.img[0]?.id,
+          }}
         />
-      </SafeAreaView>
-    );
-  }
-}
+        <MoodCard
+          id={item2._id}
+          title={item2.title}
+          content={item2.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item2.img[0]?.id,
+          }}
+        />
+        <MoodCard
+          id={item3._id}
+          title={item3.title}
+          content={item3.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item3.img[0]?.id,
+          }}
+        />
+        <MoodCard
+          id={item4._id}
+          title={item4.title}
+          content={item4.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item4.img[0]?.id,
+          }}
+        />
+      </View>
+      <ButtonDevam
+        image={require('../../assets/icons/home.png')}
+        onPressHandler={() => navigation.navigate('Home')}
+      />
+    </SafeAreaView>
+  );
+};
+
 export default DrawSevenPage;
 
 const styles = StyleSheet.create({

@@ -88,6 +88,7 @@ const HomeScreen = ({navigation}) => {
           <View style={styles.dropdowncontainer}>
             <View style={{flex: 3}}>
               <DropDownPicker
+                onChange={e => setValue(e.target.value)}
                 style={styles.dropdown}
                 placeholder="Bugun nasıl hissediyorsun ?"
                 open={open}
