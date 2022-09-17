@@ -10,7 +10,8 @@ function Environment(props) {
         playInBackground={true}
         source={props?.video}
         style={styles.backgroundVideo}
-        muted={true}
+        muted={false}
+        playInBackground={true}
         repeat={true}
         resizeMode={'cover'}
       />
