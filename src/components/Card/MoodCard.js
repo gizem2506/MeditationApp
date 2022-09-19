@@ -8,7 +8,7 @@ import {CustomImage} from '../Common/CustomImage';
 const MoodCard = props => {
   const [isClicked, setisClicked] = useState(false);
 
-  const {title, content, image, onPressHandler, id} = props;
+  const {title, content, image, onPressHandler, id, isUri} = props;
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -21,7 +21,7 @@ const MoodCard = props => {
           height={170}
           source={image}
           resizeMode={'cover'}
-          isUri={false}
+          isUri={props.isUri}
         />
       ) : (
         <View>

@@ -15,7 +15,7 @@ import ButtonDevam from '../Common/ButtonDevam';
 import axios from 'axios';
 const {width, height} = Dimensions.get('window');
 
-const MoodScreen = ({navigation}) => {
+const MoodScreen = ({navigation, isUri}) => {
   const [formData, setFormData] = React.useState([
     {
       title: '',
@@ -48,6 +48,7 @@ const MoodScreen = ({navigation}) => {
             title={data.title}
             content={data.content}
             id={data._id}
+            isUri={true}
             image={'http://10.0.2.2:5001/api/v1/moods/image/' + data.img[0]?.id}
           />
         ))}
