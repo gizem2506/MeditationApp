@@ -22,17 +22,43 @@ const DrawSixPage = ({navigation}) => {
   const [formData, setFormData] = React.useState([
     {
       title: '',
-      category: 'draw2',
+      category: '',
       content: '',
       img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
     },
   ]);
-  const item1 = formData[Math.floor(Math.random() * formData.length)];
-  const item2 = formData[Math.floor(Math.random() * formData.length)];
+  const item1 = formData[0];
+  const item2 = formData[1];
 
-  const item3 = formData[Math.floor(Math.random() * formData.length)];
+  const item3 = formData[2];
 
-  const item4 = formData[Math.floor(Math.random() * formData.length)];
+  const item4 =formData[3];
 
   React.useEffect(() => {
     getData();
@@ -41,8 +67,14 @@ const DrawSixPage = ({navigation}) => {
     await axios
       .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/draw6')
       .then(response => {
-        setFormData(response.data.data.moods);
-        console.log(response.data.data.moods);
+        let data = response.data.data.moods;
+        let newArr = [];
+        while (newArr.length != 4) {
+          let r = Math.floor(Math.random() * data.length);
+          newArr.push(data[r]);
+          data.splice(r, 1);
+        }
+        setFormData(newArr);
       })
       .catch(error => {
         console.log(error.message);
@@ -68,45 +100,33 @@ const DrawSixPage = ({navigation}) => {
         <RastgeleButton image={require('../../assets/icons/refresh.png')} />
         <Text style={styles.rastgele}>Rastgele obje öner</Text>
       </View>
-        <View style={styles.articleContainer}>
-          <Article
-            title={item1.title}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-          <Article
-            title={item2.title}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-          <Article
-            title={item3.title}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-          <Article
-            title={item4.title}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' +
-                formData[Math.floor(Math.random() * formData.length)].img[0]
-                  ?.id,
-            }}
-          />
-        </View>
-    
+      <View style={styles.articleContainer}>
+        <Article
+          title={item1.title}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item1.img[0]?.id,
+          }}
+        />
+        <Article
+          title={item2.title}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item2.img[0]?.id,
+          }}
+        />
+        <Article
+          title={item3.title}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item3.img[0]?.id,
+          }}
+        />
+        <Article
+          title={item4.title}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item4.img[0]?.id,
+          }}
+        />
+      </View>
+
       <ButtonDevam
         image={require('../../assets/icons/right.png')}
         onPressHandler={() => navigation.navigate('DrawSevenPage')}

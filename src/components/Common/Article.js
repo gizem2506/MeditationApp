@@ -8,7 +8,7 @@ const Article = props => {
 
   return (
     <View style={styles.container}>
-      <CustomImage width={120} height={120} source={image} />
+      <CustomImage width={120} height={120} source={image}  />
       <View style={styles.articleContainer}>
         <Title style={styles.articleTitle}> {title}</Title>
       </View>

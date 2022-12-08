@@ -24,20 +24,53 @@ const ThinkFivePage = ({navigation}) => {
       video: [],
       audio: [],
     },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
   ]);
-  var item1 = formData[Math.floor(Math.random() * formData.length)];
-  var item2 = formData[Math.floor(Math.random() * formData.length)];
-  var item3 = formData[Math.floor(Math.random() * formData.length)];
-  var item4 = formData[Math.floor(Math.random() * formData.length)];
+  const item1 = formData[0];
+  const item2 = formData[1];
+
+  const item3 = formData[2];
+
+  const item4 = formData[3];
+
   React.useEffect(() => {
     getData();
   }, []);
-
   const getData = async () => {
     await axios
-      .get(`http://10.0.2.2:5001/api/v1/moods/uploadphoto/video`)
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/video')
       .then(response => {
-        setFormData(response.data.data.moods);
+        let data = response.data.data.moods;
+        let newArr = [];
+        while (newArr.length != 4) {
+          let r = Math.floor(Math.random() * data.length);
+          newArr.push(data[r]);
+          data.splice(r, 1);
+        }
+        setFormData(newArr);
       })
       .catch(error => {
         console.log(error.message);
@@ -64,48 +97,44 @@ const ThinkFivePage = ({navigation}) => {
           İşte sana ilham verebilecek ortamlarımız!{' '}
         </Text>
       </View>
-        <View style={styles.moodContainer}>
-          <MoodCard
-            id={item1._id}
-            title={item1.title}
-            content={item1.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' + item1.img[0]?.id,
-            }}
-          />
-          <MoodCard
-            id={item2._id}
-            title={item2.title}
-            content={item2.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' + item2.img[0]?.id,
-            }}
-          />
-          <MoodCard
-            id={item3._id}
-            title={item3.title}
-            content={item3.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' + item3.img[0]?.id,
-            }}
-          />
-          <MoodCard
-            id={item4._id}
-            title={item4.title}
-            content={item4.content}
-            image={{
-              uri:
-                'http://10.0.2.2:5001/api/v1/moods/image/' + item4.img[0]?.id,
-            }}
-          />
-        </View>
-        <ButtonDevam
-          image={require('../../assets/icons/right.png')}
-          onPressHandler={() => navigation.navigate('ThinkSixPage')}
+      <View style={styles.moodContainer}>
+        <MoodCard
+          id={item1._id}
+          title={item1.title}
+          content={item1.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item1.img[0]?.id,
+          }}
         />
+        <MoodCard
+          id={item2._id}
+          title={item2.title}
+          content={item2.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item2.img[0]?.id,
+          }}
+        />
+        <MoodCard
+          id={item3._id}
+          title={item3.title}
+          content={item3.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item3.img[0]?.id,
+          }}
+        />
+        <MoodCard
+          id={item4._id}
+          title={item4.title}
+          content={item4.content}
+          image={{
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item4.img[0]?.id,
+          }}
+        />
+      </View>
+      <ButtonDevam
+        image={require('../../assets/icons/right.png')}
+        onPressHandler={() => navigation.navigate('ThinkSixPage')}
+      />
     </View>
   );
 };

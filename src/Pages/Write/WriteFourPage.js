@@ -26,12 +26,40 @@ const WriteFourPage = ({navigation}) => {
       category: '',
       content: '',
       img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
     },
   ]);
-  const item1 = formData[Math.floor(Math.random() * formData.length)];
-  const item2 = formData[Math.floor(Math.random() * formData.length)];
-  const item3 = formData[Math.floor(Math.random() * formData.length)];
-  const item4 = formData[Math.floor(Math.random() * formData.length)];
+  const item1 = formData[0];
+  const item2 = formData[1];
+
+  const item3 = formData[2];
+
+  const item4 =formData[3];
 
   React.useEffect(() => {
     getData();
@@ -40,7 +68,14 @@ const WriteFourPage = ({navigation}) => {
     await axios
       .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/write4')
       .then(response => {
-        setFormData(response.data.data.moods);
+        let data = response.data.data.moods;
+        let newArr = [];
+        while (newArr.length != 4) {
+          let r = Math.floor(Math.random() * data.length);
+          newArr.push(data[r]);
+          data.splice(r, 1);
+        }
+        setFormData(newArr);
       })
       .catch(error => {
         console.log(error.message);

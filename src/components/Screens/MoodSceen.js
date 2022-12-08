@@ -39,6 +39,7 @@ const MoodScreen = ({navigation, isUri}) => {
         console.log(error.message);
       });
   };
+  
   return (
     <View style={styles.container}>
       <Background />

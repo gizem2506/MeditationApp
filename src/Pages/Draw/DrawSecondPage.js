@@ -23,34 +23,44 @@ const DrawSecondPage = ({navigation}) => {
   const [formData, setFormData] = React.useState([
     {
       title: '',
-      category: 'draw2',
+      category: '',
       content: '',
       img: [],
+      video: [],
+      audio: [],
+    },
+    {
+      title: '',
+      category: '',
+      content: '',
+      img: [],
+      video: [],
+      audio: [],
     },
   ]);
-  const item1 = formData[Math.floor(Math.random() * formData.length)];
-  const item2 = formData[Math.floor(Math.random() * formData.length)];
-
-  const item3 = formData[Math.floor(Math.random() * formData.length)];
-
-  const item4 = formData[Math.floor(Math.random() * formData.length)];
+  const item1 = formData[0];
+  const item2 = formData[1];
 
   React.useEffect(() => {
     getData();
   }, []);
-
   const getData = async () => {
     await axios
-      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/draw2')
+      .get('http://10.0.2.2:5001/api/v1/moods/uploadphoto/draw6')
       .then(response => {
-        setFormData(response.data.data.moods);
-        console.log(response.data.data.moods);
+        let data = response.data.data.moods;
+        let newArr = [];
+        while (newArr.length != 2) {
+          let r = Math.floor(Math.random() * data.length);
+          newArr.push(data[r]);
+          data.splice(r, 1);
+        }
+        setFormData(newArr);
       })
       .catch(error => {
         console.log(error.message);
       });
   };
-
   return (
     <View>
       <View style={styles.container}>
@@ -76,16 +86,12 @@ const DrawSecondPage = ({navigation}) => {
       <View style={styles.challangeContainer}>
         <Challange
           image={{
-            uri:
-              'http://10.0.2.2:5001/api/v1/moods/image/' +
-              formData[Math.floor(Math.random() * formData.length)].img[0]?.id,
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item1.img[0]?.id,
           }}
         />
         <Challange
           image={{
-            uri:
-              'http://10.0.2.2:5001/api/v1/moods/image/' +
-              formData[Math.floor(Math.random() * formData.length)].img[0]?.id,
+            uri: 'http://10.0.2.2:5001/api/v1/moods/image/' + item2.img[0]?.id,
           }}
         />
       </View>

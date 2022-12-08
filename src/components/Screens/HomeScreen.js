@@ -32,7 +32,7 @@ const HomeScreen = ({navigation}) => {
   ]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container2}>
       <View style={styles.container}>
         <View style={styles.backgroundContainer}>
           <ImageBackground
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
+ 
   ambianchetext: {
     fontWeight: 'bold',
     color: '#ffffff',

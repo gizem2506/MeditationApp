@@ -1,10 +1,11 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
   ImageBackground,
   StyleSheet,
   SafeAreaView,
+  Image,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
 import Image1 from '../../assets/manzara.png';
@@ -13,6 +14,7 @@ import ButtonDevam from '../../components/Common/ButtonDevam';
 import Background from '../../components/Common/Background';
 import RastgeleButton from '../../components/Common/RastgeleButton';
 import axios from 'axios';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const WriteSecondPage = ({navigation}) => {
   const [formData, setFormData] = React.useState([
@@ -47,41 +49,59 @@ const WriteSecondPage = ({navigation}) => {
 
   return (
     <View>
-      <View style={styles.container}>
-        <ImageBackground
-          style={styles.imageContainer}
-          source={Image1}
-          resizeMode="cover"
-          alt="background">
-          <Background />
-        </ImageBackground>
-      </View>
+     
+        <View style={styles.container}>
+          <ImageBackground
+            style={styles.imageContainer}
+            source={Image1}
+            resizeMode="cover"
+            alt="background">
+            <Background />
+          </ImageBackground>
+        </View>
+        <ScrollView>
+        <View style={styles.textContainer}>
+          <Text style={styles.textBir}>2 </Text>
+          <Text style={styles.textİki}>
+            Yazmaya başlamadan önce zihninize iyi bakmanız için birkaç önerimiz
+            var
+          </Text>
+          <Text style={styles.textYazi}>
+            Beyninizi bir bilgisayarolarak hayal edin
+          </Text>
+          <Image
+            style={styles.ımageStyle}
+            source={require('../../assets/laptop.png')}
+          />
+          <Text style={styles.textİki}>Yazılımını güncellemek için ; </Text>
+          <Text style={styles.textDetail}>Kitap oku </Text>
+          <Text style={styles.textDetail}>Podcast dinle </Text>
+          <Text style={styles.textDetail}>Deneyime açık ol</Text>
+          <Image
+            style={styles.ımageStyle}
+            source={require('../../assets/cd.png')}
+          />
 
-      <View style={styles.textContainer}>
-        <Text style={styles.textBir}>2 </Text>
-        <Text style={styles.textİki}>
-          Yazmaya başlamadan önce zihninizi boşaltmalısınız.
-        </Text>
-        <Text style={styles.textİki}>Yazılımını güncellemek için ; </Text>
-        <Text style={styles.textDetail}>Kitap oku </Text>
-        <Text style={styles.textDetail}>Podcast dinle </Text>
-        <Text style={styles.textDetail}>Deneyime açık ol</Text>
+          <Text style={styles.textİki}>Diskini temiz tutmak için ; </Text>
+          <Text style={styles.textDetail}>Meditasyon yap </Text>
+          <Text style={styles.textDetail}>Günlük tut </Text>
+          <Text style={styles.textDetail}>kendini dinle</Text>
+          <Image
+            style={styles.ımageStyle}
+            source={require('../../assets/battery.png')}
+          />
 
-        <Text style={styles.textİki}>Diskini temiz tutmak için ; </Text>
-        <Text style={styles.textDetail}>Meditasyon yap </Text>
-        <Text style={styles.textDetail}>Günlük tut </Text>
-        <Text style={styles.textDetail}>kendini dinle</Text>
+          <Text style={styles.textİki}>Pilini korumak için ; </Text>
+          <Text style={styles.textDetail}>8 saat uyu </Text>
+          <Text style={styles.textDetail}>Doğaya sarıl</Text>
+          <Text style={styles.textDetail}>Ditijal detoks yap</Text>
+        </View>
 
-        <Text style={styles.textİki}>Pilini korumak için ; </Text>
-        <Text style={styles.textDetail}>8 saat uyu </Text>
-        <Text style={styles.textDetail}>Doğaya sarıl</Text>
-        <Text style={styles.textDetail}>Ditijal detoks yap</Text>
-      </View>
-
-      <ButtonDevam
-        image={require('../../assets/icons/right.png')}
-        onPressHandler={() => navigation.navigate('WriteThreePage')}
-      />
+        <ButtonDevam
+          image={require('../../assets/icons/right.png')}
+          onPressHandler={() => navigation.navigate('WriteThreePage')}
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -103,17 +123,24 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   textİki: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 'bold',
     color: 'white',
     marginTop: 10,
     marginLeft: 0,
-
+    margin: 6,
+  },
+  textYazi: {
+    fontSize: 14,
+    color: 'white',
+    marginTop: 10,
+    marginLeft: 0,
     margin: 6,
   },
   textDetail: {
     marginTop: 10,
     marginLeft: 0,
+    color: 'white',
   },
   textContainer: {
     margin: 10,
@@ -144,5 +171,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     marginTop: 7,
+  },
+  ımageStyle: {
+    height: 80,
+    width: 80,
+    marginTop:10,
   },
 });
