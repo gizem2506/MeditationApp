@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import RouterNavigation from './src/Navigation/RouterNavigation';
-import {configureStore} from './src/state';
+import {configureStore} from './src/state/index';
 import {Provider} from 'react-redux';
 import {View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
